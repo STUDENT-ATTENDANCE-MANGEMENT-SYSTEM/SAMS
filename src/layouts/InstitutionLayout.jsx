@@ -16,6 +16,7 @@ import {
   Spacer,
   Stack,
   Text,
+  Tooltip,
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
@@ -23,7 +24,10 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   MdAnnouncement,
   MdBook,
+  MdContentCopy,
   MdHelp,
+  MdNotifications,
+  MdOutlineNotifications,
   MdSettingsSuggest,
   MdSsidChart,
   MdVisibility,
@@ -58,32 +62,93 @@ export default function InstitutionLayout() {
                     color: isActive ? "Red" : "black",
                   };
                 }}>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  pb={"30px"}>
                   <ListIcon as={MdVisibility} boxSize={5} />
                   Overview
                 </ListItem>
               </NavLink>
-              <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
-                <ListIcon as={MdBook} boxSize={5} />
-                Courses
-              </ListItem>
-              <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
-                <ListIcon as={MdSsidChart} boxSize={5} />
-                Insight
-              </ListItem>
+              <NavLink
+                to={"/construction"}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "Red" : "black",
+                  };
+                }}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  pb={"30px"}>
+                  <ListIcon as={MdBook} boxSize={5} />
+                  Courses
+                </ListItem>
+              </NavLink>
+              <NavLink
+                to={"/construction"}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "Red" : "black",
+                  };
+                }}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  pb={"30px"}>
+                  <ListIcon as={MdSsidChart} boxSize={5} />
+                  Insight
+                </ListItem>
+              </NavLink>
+              <NavLink
+                to={"/construction"}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "Red" : "black",
+                  };
+                }}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  pb={"30px"}>
+                  <ListIcon as={MdSettingsSuggest} boxSize={5} />
+                  Setting
+                </ListItem>
+              </NavLink>
+              <NavLink
+                to={"/construction"}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "Red" : "black",
+                  };
+                }}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  pb={"30px"}>
+                  <ListIcon as={MdHelp} boxSize={5} />
+                  Support and Help
+                </ListItem>
+              </NavLink>
+              <NavLink
+                to={"/construction"}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "Red" : "black",
+                  };
+                }}>
+                {" "}
+                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                  <ListIcon as={MdAnnouncement} boxSize={5} />
+                  Annoucement
+                </ListItem>
+              </NavLink>
 
-              <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
-                <ListIcon as={MdSettingsSuggest} boxSize={5} />
-                Setting
-              </ListItem>
-              <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
-                <ListIcon as={MdHelp} boxSize={5} />
-                Support and Help
-              </ListItem>
-              <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
-                <ListIcon as={MdAnnouncement} boxSize={5} />
-                Annoucement
-              </ListItem>
               <ListItem>
                 <Button colorScheme="red" p={"10px"} w={"75%"}>
                   Logout
@@ -98,18 +163,28 @@ export default function InstitutionLayout() {
               <img src={logo} alt="logo" />
             </Box>
             <Spacer />
-            <Flex align={"center"} gap={"10"} mr={"100px"}>
-              <IconButton
-                variant={"ghost"}
-                colorScheme="white"
-                icon={<SearchIcon />}
-              />
+            <Flex align={"center"} gap={"7"} mr={"150px"}>
+              <Tooltip
+                hasArrow
+                label="Copy institution code"
+                bg={"white"}
+                color={"black"}
+                p={"10px"}>
+                <IconButton
+                  variant={"ghost"}
+                  colorScheme="white"
+                  icon={<MdContentCopy />}
+                  size={"lg"}
+                />
+              </Tooltip>
+
               <Menu>
                 <MenuButton>
                   <IconButton
                     variant={"ghost"}
                     colorScheme="white"
-                    icon={<AddIcon />}
+                    icon={<MdOutlineNotifications />}
+                    size={"lg"}
                   />
                 </MenuButton>
                 <MenuList>
