@@ -181,5 +181,5 @@ export const institutionRegister = async ({ request }) => {
   localStorage.setItem("Institution", JSON.stringify(submission));
 
   console.log(submission);
-  return redirect("/institution");
+  return redirect("/price");
 };

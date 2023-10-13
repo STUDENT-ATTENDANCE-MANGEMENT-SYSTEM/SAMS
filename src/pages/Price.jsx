@@ -183,9 +183,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -244,9 +246,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -305,9 +309,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -366,9 +372,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
             </Flex>
           </TabPanel>
@@ -393,7 +401,7 @@ export default function Price() {
                         <Heading fontFamily={"mono"} pb={"20px"}>
                           NGN 30,000/yr
                         </Heading>
-
+                        <Link to={"institution"}></Link>
                         <Text fontSize={"20px"}>
                           <IconButton
                             as={WarningIcon}
@@ -434,9 +442,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -495,9 +505,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -556,9 +568,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
                 <Box onClick={onOpen}>
@@ -619,9 +633,11 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Button my={"20px"} color={"white"} colorScheme="red">
-                  Try Free Trial
-                </Button>
+                <Link to={"/institution/home"}>
+                  <Button my={"20px"} color={"white"} colorScheme="red">
+                    Try Free Trial
+                  </Button>
+                </Link>
               </Flex>
             </Flex>
           </TabPanel>
