@@ -181,7 +181,13 @@ import {
                 <img src={logo} alt='logo' />
               </Box>
               <Spacer />
-              <Flex align={"center"} gap={"10"} mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}
+
+              
+
+<Flex align={"center"} gap={"10"} mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
+
+
+
           <Flex mt={"40px"} ml={"10px"}>
             <Text fontWeight={"extrabold"} fontSize={"2xl"}>
               Hello! Segun
