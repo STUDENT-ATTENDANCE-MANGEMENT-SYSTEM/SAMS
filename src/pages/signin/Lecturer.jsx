@@ -186,5 +186,5 @@ export const lecturerRegister = async ({ request }) => {
   localStorage.setItem("Lecturer", JSON.stringify(submission));
 
   console.log(submission);
-  return redirect("/lecturer/home");
+  return redirect("/lecturer");
 };
