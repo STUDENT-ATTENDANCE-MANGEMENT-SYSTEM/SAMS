@@ -24,7 +24,7 @@ import {
 import Hamburger from "hamburger-react";
 import { Link, NavLink, Outlet } from "react-router-dom"
 
-} from "@chakra-ui/react";
+
 
 
 import {
