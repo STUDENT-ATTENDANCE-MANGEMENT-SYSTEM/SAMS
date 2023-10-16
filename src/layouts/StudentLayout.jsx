@@ -182,58 +182,8 @@ import {
               </Box>
               <Spacer />
               <Flex align={"center"} gap={"10"} mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
-=======
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  IconButton,
-  List,
-  ListIcon,
-  ListItem,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Spacer,
-  Stack,
-  Text,
-  Tooltip,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react"
-import { Link, Outlet } from "react-router-dom"
-import {
-  MdAnalytics,
-  MdBook,
-  MdContactSupport,
-  MdHome,
-  MdSettings,
-} from "react-icons/md"
-import { useEffect } from "react"
-import logo from "../images/logo.png"
-import { AddIcon, BellIcon, SearchIcon } from "@chakra-ui/icons"
-export default function StudentLayout() {
-  useEffect(() => {
-    document.body.classList.add("bg-color")
-  }, [])
 
-  return (
-    <div>
-      <Grid templateColumns={"repeat(6, 1fr)"}>
-        <GridItem
-          as={"aside"}
-          colSpan={"1"}
-          minHeight={"100vh"}
-          borderRight={"2px solid black"}
-        >
+
           <Flex mt={"40px"} ml={"10px"}>
             <Text fontWeight={"extrabold"} fontSize={"2xl"}>
               Hello! Segun
