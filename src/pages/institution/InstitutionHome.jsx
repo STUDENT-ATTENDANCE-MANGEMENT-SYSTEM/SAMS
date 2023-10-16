@@ -203,7 +203,7 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
+   CardBody,
   CardFooter,
   CardHeader,
   Flex,
