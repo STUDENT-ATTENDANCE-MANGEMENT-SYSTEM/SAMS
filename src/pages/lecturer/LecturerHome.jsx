@@ -14,36 +14,40 @@ import {
   MenuList,
   Spacer,
   Icon,
-} from "@chakra-ui/react"
-import { v4 as uuidv4 } from "uuid"
-import { useEffect, useState } from "react"
-import copy from "copy-to-clipboard"
-import { NavLink, Outlet } from "react-router-dom"
-import { color } from "framer-motion"
+} from "@chakra-ui/react";
+import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
+import copy from "copy-to-clipboard";
+import { NavLink, Outlet } from "react-router-dom";
+import { color } from "framer-motion";
 import {
   MdContentCopy,
   MdMoreVert,
   MdLockOutline,
   MdEdit,
   MdCalculate,
-} from "react-icons/md"
+} from "react-icons/md";
 const data = [
   { courseCode: "TME 211", title: "INTRODUCTION TO ENGINEERING DRAWING" },
   { courseCode: "TME 231", title: "INTRODUCTION TO ENGINEERING PRINCIPLES" },
   { courseCode: "MAT 224", title: "INTRODUCTION TO ENGINEERING MATHEMATICS" },
   { courseCode: "GNS 210", title: "INTRODUCTION TO ENTREPRENEURSHIP" },
-]
+];
 
 export default function LecturerHome() {
   useEffect(() => {
-    document.body.classList.add("bg-color")
-  }, [])
+    document.body.classList.add("bg-color");
+  }, []);
   return (
     <div>
-      <SimpleGrid columns={3} mx={"20px"} gap={"10"} mt={"30px"}>
+      <SimpleGrid
+        columns={{ base: "2", lg: "3", xl: "3" }}
+        mx={"20px"}
+        gap={"10"}
+        mt={"30px"}>
         {data.map((item) => {
-          const { courseCode, title } = item
-          const [code, setCode] = useState()
+          const { courseCode, title } = item;
+          const [code, setCode] = useState();
           return (
             <Card>
               <CardHeader>
@@ -80,9 +84,9 @@ export default function LecturerHome() {
                 />
                 <IconButton
                   onClick={() => {
-                    setCode(courseCode + uuidv4())
-                    copy(code)
-                    alert(`You have copied course ID`)
+                    setCode(courseCode + uuidv4());
+                    copy(code);
+                    alert(`You have copied ${courseCode} attendance code`);
                   }}
                   variant={"ghost"}
                   size={"lg"}
@@ -90,9 +94,9 @@ export default function LecturerHome() {
                 />
               </CardFooter>
             </Card>
-          )
+          );
         })}
       </SimpleGrid>
     </div>
-  )
+  );
 }

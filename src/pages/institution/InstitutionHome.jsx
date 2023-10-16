@@ -63,7 +63,12 @@ export default function InstitutionHome() {
   });
   return (
     <div>
-      <SimpleGrid columns={3} mt={"40px"} ml={"20px"} gap={10} mr={"40px"}>
+      <SimpleGrid
+        columns={{ base: "2", lg: "3", xl: "3" }}
+        mt={"40px"}
+        ml={"20px"}
+        gap={10}
+        mr={"40px"}>
         <Card pl={"20px"} ml={"20px"}>
           <CardHeader>
             <Icon as={MdPeopleAlt} boxSize={10} mb={"-40px"} />
@@ -116,9 +121,14 @@ export default function InstitutionHome() {
           </CardFooter>
         </Card>
       </SimpleGrid>
-      <Flex gap={5} mt={"30px"} ml={"20px"}>
+      <Flex
+        gap={5}
+        mt={"30px"}
+        ml={{ base: "0px", lg: "20px", xl: "20px" }}
+        align={{ base: "center", lg: "normal", xl: "normal" }}
+        flexDirection={{ base: "column", lg: "row", xl: "row" }}>
         <Box
-          w={"500px"}
+          width={{ base: "75%", md: "75%", lg: "50%", xl: "50%" }}
           border={"1px solid lightpink"}
           borderRadius={"15px"}
           backgroundColor={"lightpink"}
@@ -145,7 +155,7 @@ export default function InstitutionHome() {
           <LineChart chartData={lineData} />
         </Box>
         <Box
-          w={"500px"}
+          width={{ base: "75%", md: "75%", lg: "40%", xl: "40%" }}
           border={"2px solid black"}
           borderRadius={"15px"}
           p={"20px"}>
@@ -179,7 +189,9 @@ export default function InstitutionHome() {
             borderRadius={"15px"}
             backgroundColor={"#ffefd3"}
             h={"230px"}>
-            <Box width={"150px"} mt={"-20px"}>
+            <Box
+              width={{ base: "50%", md: "75%", lg: "50%", xl: "50%" }}
+              mt={"-20px"}>
               <img src={Saving} alt="saving" />
             </Box>
             <Text pr={"10px"} pl={"20px"} pt={"20px"}>
