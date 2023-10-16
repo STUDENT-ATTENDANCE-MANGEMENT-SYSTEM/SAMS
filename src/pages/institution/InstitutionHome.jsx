@@ -23,7 +23,7 @@ import {
     MdOutlineTrendingUp,
     MdPeopleAlt,
   } from "react-icons/md";
-  import React, { useState } from "react";
+  import { useState } from "react";
   import BarChart from "../../component/BarChart";
   import LineChart from "../../component/LineChart";
   import { attendanceData } from "../data";
@@ -198,5 +198,9 @@ import {
                 You have 10 days left on your subscription
               </Text>
             </Flex>
-
+     </Flex>
+      </Flex>
+    </div>
+  );
+}
   
