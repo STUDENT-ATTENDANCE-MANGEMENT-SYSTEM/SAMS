@@ -248,7 +248,6 @@ import {
                 color={"black"}
                 p={"10px"}
               >
->>>>>>> 4239b837063c2b87406c1284724f2fa49aca03be
                 <IconButton
                   variant={"ghost"}
                   colorScheme='white'
