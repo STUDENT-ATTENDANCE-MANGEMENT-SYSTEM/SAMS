@@ -19,8 +19,8 @@ import {
   Tooltip,
   Wrap,
   WrapItem,
-} from "@chakra-ui/react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+} from "@chakra-ui/react"
+import { Link, NavLink, Outlet } from "react-router-dom"
 import {
   MdAnnouncement,
   MdBook,
@@ -36,11 +36,14 @@ import {
 } from "react-icons/md";
 import Hamburger from "hamburger-react";
 import { useEffect, useState } from "react";
-import logo from "../images/logo.png";
+import logo from "../images/logo.png"
+} from "react-icons/md"
+import { AddIcon, SearchIcon } from "@chakra-ui/icons"
+
 export default function InstitutionLayout() {
   useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
+    document.body.classList.add("bg-color")
+  }, [])
 
   const [tooltipText, setTooltipText] = useState("Copy institution code");
   const [display, setDisplay] = useState("none");
@@ -52,6 +55,7 @@ export default function InstitutionLayout() {
   return (
     <div>
       <Grid templateColumns={"repeat(6, 1fr)"}>
+
         <Box display={{ base: "none", lg: "grid", xl: "grid" }}>
           <GridItem
             as={"aside"}
@@ -280,7 +284,8 @@ export default function InstitutionLayout() {
                 <ListItem>
                   <Button colorScheme="red" p={"10px"} w={"75%"}>
                     Logout
-                  </Button>
+                    </Button>
+    
                 </ListItem>
               </List>
             </Flex>
@@ -309,6 +314,7 @@ export default function InstitutionLayout() {
 
             <Box ml={"20px"} w={"100%"}>
               <img src={logo} alt="logo" />
+
             </Box>
             <Spacer />
             <Flex
@@ -317,13 +323,16 @@ export default function InstitutionLayout() {
               mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
               <Tooltip
                 hasArrow
+
                 label={tooltipText}
+
                 bg={"white"}
                 color={"black"}
-                p={"10px"}>
+                p={"10px"}
+              >
                 <IconButton
                   variant={"ghost"}
-                  colorScheme="white"
+                  colorScheme='white'
                   icon={<MdContentCopy />}
                   size={"lg"}
                   onClick={handleCopyClick}
@@ -333,7 +342,7 @@ export default function InstitutionLayout() {
                 <MenuButton>
                   <IconButton
                     variant={"ghost"}
-                    colorScheme="white"
+                    colorScheme='white'
                     icon={<MdOutlineNotifications />}
                     size={"lg"}
                   />
@@ -346,8 +355,8 @@ export default function InstitutionLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
-                    name="University of Ibadan"
-                    src="https://bit.ly/broken-link"
+                    name='University of Ibadan'
+                    src='https://bit.ly/broken-link'
                   />
                 </WrapItem>
               </Wrap>
@@ -357,5 +366,5 @@ export default function InstitutionLayout() {
         </GridItem>
       </Grid>
     </div>
-  );
+  )
 }
