@@ -33,7 +33,7 @@ import {
   MdSsidChart,
   MdVisibility,
 } from "react-icons/md"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import logo from "../images/logo.png"
 import { AddIcon, SearchIcon } from "@chakra-ui/icons"
 export default function InstitutionLayout() {
