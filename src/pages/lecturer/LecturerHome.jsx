@@ -14,7 +14,7 @@ import {
   MenuList,
   Spacer,
   Icon,
-  Modal,
+   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -26,12 +26,16 @@ import {
   FormLabel,
   Input,
   Button,
-} from "@chakra-ui/react"
-import { v4 as uuidv4 } from "uuid"
-import { useEffect, useState } from "react"
-import copy from "copy-to-clipboard"
-import { NavLink, Outlet } from "react-router-dom"
-import { color } from "framer-motion"
+
+} from "@chakra-ui/react";
+import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
+import copy from "copy-to-clipboard";
+import { NavLink, Outlet } from "react-router-dom";
+import { color } from "framer-motion";
+
+
+
 import {
   MdContentCopy,
   MdMoreVert,
@@ -39,16 +43,34 @@ import {
   MdLockOpen,
   MdEdit,
   MdCalculate,
-} from "react-icons/md"
+} from "react-icons/md";
 const data = [
   { courseCode: "TME 211", title: "INTRODUCTION TO ENGINEERING DRAWING" },
   { courseCode: "TME 231", title: "INTRODUCTION TO ENGINEERING PRINCIPLES" },
   { courseCode: "MAT 224", title: "INTRODUCTION TO ENGINEERING MATHEMATICS" },
   { courseCode: "GNS 210", title: "INTRODUCTION TO ENTREPRENEURSHIP" },
+
+];
+
 ]
+
 export default function LecturerHome() {
   // const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
+
+    document.body.classList.add("bg-color");
+  }, []);
+  return (
+    <div>
+      <SimpleGrid
+        columns={{ base: "2", lg: "3", xl: "3" }}
+        mx={"20px"}
+        gap={"10"}
+        mt={"30px"}>
+        {data.map((item) => {
+          const { courseCode, title } = item;
+          const [code, setCode] = useState();
+
     document.body.classList.add("bg-color")
   }, [])
   const [lock, setLock] = useState(Array(data.length).fill(true))
@@ -65,6 +87,7 @@ export default function LecturerHome() {
         {data.map((item, index) => {
           const { courseCode, title } = item
           const [code, setCode] = useState(courseCode + uuidv4())
+
 
           return (
             <div key={index}>
@@ -96,6 +119,47 @@ export default function LecturerHome() {
                 <CardBody>{title}</CardBody>
                 <CardFooter>
                   <Spacer />
+
+                  <Menu>
+                    <MenuButton>
+                      {" "}
+                      <IconButton
+                        variant={"ghost"}
+                        size={"lg"}
+                        icon={<MdMoreVert />}
+                      />
+                    </MenuButton>
+                    <MenuList ml={"-160px"} mt={"-10px"}>
+                      <MenuItem icon={<MdEdit />}>Edit Attendance</MenuItem>
+                      <MenuItem icon={<MdCalculate />}>
+                        Calculate Attendance
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
+                </Flex>
+              </CardHeader>
+              <CardBody>{title}</CardBody>
+              <CardFooter>
+                <Spacer />
+                <IconButton
+                  variant={"ghost"}
+                  icon={<MdLockOutline />}
+                  size={"lg"}
+                />
+                <IconButton
+                  onClick={() => {
+                    setCode(courseCode + uuidv4());
+                    copy(code);
+                    alert(`You have copied ${courseCode} attendance code`);
+                  }}
+                  variant={"ghost"}
+                  size={"lg"}
+                  icon={<MdContentCopy />}
+                />
+              </CardFooter>
+            </Card>
+          );
+
                   <span>
                     <IconButton
                       variant={"ghost"}
@@ -171,8 +235,9 @@ export default function LecturerHome() {
               </Modal> */}
             </div>
           )
+
         })}
       </SimpleGrid>
     </div>
-  )
+  );
 }
