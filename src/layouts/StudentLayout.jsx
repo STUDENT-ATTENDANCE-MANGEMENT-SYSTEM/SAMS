@@ -1,5 +1,5 @@
 import {
-<<<<<<< HEAD
+
     Accordion,
     AccordionButton,
     AccordionIcon,
