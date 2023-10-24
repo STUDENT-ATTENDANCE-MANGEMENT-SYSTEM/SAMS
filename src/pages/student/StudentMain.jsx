@@ -24,13 +24,10 @@ export default function StudentMain() {
           </Box>
         </Flex>
         <Text textAlign={"center"} fontWeight={"semibold"} mt={"-80px"}>
-          You are yet to create an attendance tab
+          You are yet to join an attendance tab
         </Text>
         <Flex justify={"center"} mt={"20px"} gap={"5"}>
-          <Button colorScheme="red">Create</Button>
-          <Button colorScheme="white" color={"red"}>
-            Join
-          </Button>
+          <Button colorScheme="red">Join</Button>
         </Flex>
       </Container>
     </div>
