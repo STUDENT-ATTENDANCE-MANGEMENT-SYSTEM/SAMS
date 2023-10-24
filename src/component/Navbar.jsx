@@ -6,12 +6,12 @@ import {
   IconButton,
   Spacer,
   useMediaQuery,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import logo from "../images/logo.png";
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Hamburger from "hamburger-react";
+} from "@chakra-ui/react"
+import { motion } from "framer-motion"
+import logo from "../images/logo.png"
+import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
+import Hamburger from "hamburger-react"
 export default function Navbar() {
   const componentButton = {
     bgColor: "#213655",
@@ -21,7 +21,7 @@ export default function Navbar() {
       color: "white",
       bgColor: "#f2575d",
     },
-  };
+  }
 
   const secondRegister = {
     color: "#213655",
@@ -33,24 +33,24 @@ export default function Navbar() {
       color: "white",
       border: "3px solid #f2575d ",
     },
-  };
-  const [display, setDisplay] = useState("none");
-  const [background, setBackground] = useState("hsl(32, 45%, 94%)");
-  const [shadow, setShadow] = useState("");
+  }
+  const [display, setDisplay] = useState("none")
+  const [background, setBackground] = useState("hsl(32, 45%, 94%)")
+  const [shadow, setShadow] = useState("")
   const changeBg = (e) => {
-    var scrollValue = window.scrollY;
+    var scrollValue = window.scrollY
     if (scrollValue > 100) {
-      setBackground("white");
-      setShadow("0px 2px 10px 0px rgba(158,161,161,1)");
+      setBackground("white")
+      setShadow("0px 2px 10px 0px rgba(158,161,161,1)")
     } else {
-      setBackground("hsl(32, 45%, 94%)");
-      setShadow("");
+      setBackground("hsl(32, 45%, 94%)")
+      setShadow("")
     }
-  };
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBg);
-  }, []);
+    window.addEventListener("scroll", changeBg)
+  }, [])
 
   return (
     <div>
@@ -67,12 +67,16 @@ export default function Navbar() {
         pos={"fixed"}
         zIndex={100}
         top={"0px"}
-        transition={"all 1s"}>
+        transition={"all 1s"}
+      >
         <Box
           mx={{ base: "3%", md: "3%", lg: "5%", xl: "5%" }}
           w={"100%"}
-          mt={"10px"}>
-          <img src={logo} alt="logo" />
+          mt={"10px"}
+        >
+          <NavLink to={"/"}>
+            <img src={logo} alt='logo' />
+          </NavLink>
         </Box>
         <Spacer />
         <Flex display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}>
@@ -81,9 +85,10 @@ export default function Navbar() {
               as={"a"}
               variant={"ghost"}
               _hover={{ color: "red" }}
-              aria-label="About"
+              aria-label='About'
               w={"100%"}
-              mr={"50px"}>
+              mr={"50px"}
+            >
               ABOUT
             </Button>
           </NavLink>
@@ -91,10 +96,11 @@ export default function Navbar() {
             <Button
               as={"a"}
               variant={"ghost"}
-              aria-label="Contact"
+              aria-label='Contact'
               _hover={{ color: "red" }}
               w={"100%"}
-              mr={"50px"}>
+              mr={"50px"}
+            >
               CONTACT
             </Button>
           </NavLink>
@@ -102,9 +108,10 @@ export default function Navbar() {
             <Button
               as={"a"}
               variant={"ghost"}
-              aria-label="Pricing"
+              aria-label='Pricing'
               _hover={{ color: "red" }}
-              w={"100%"}>
+              w={"100%"}
+            >
               PRICING
             </Button>
           </NavLink>
@@ -115,21 +122,23 @@ export default function Navbar() {
           sx={componentButton}
           mr={{ base: "30px", md: "50px", lg: "70px", xl: "100px" }}
           ml={{ base: "50px", md: "0px", lg: "30px", xl: "100px" }}
-          px={{ base: "30px", md: "30px", lg: "40px", xl: "40px" }}>
+          px={{ base: "30px", md: "30px", lg: "40px", xl: "40px" }}
+        >
           <NavLink to={"/login"}>Sign in</NavLink>
         </Button>
         <Box
           display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
-          mr={"40px"}>
+          mr={"40px"}
+        >
           <Hamburger
             rounded
-            direction="right"
+            direction='right'
             duration={0.5}
             onToggle={(toggled) => {
               if (toggled) {
-                setDisplay("flex");
+                setDisplay("flex")
               } else {
-                setDisplay("none");
+                setDisplay("none")
               }
             }}
           />
@@ -146,15 +155,17 @@ export default function Navbar() {
           overflow={"auto"}
           flexDir={"column"}
           display={display}
-          transition={"all 1s"}>
+          transition={"all 1s"}
+        >
           <Flex flexDir={"column"} align={"center"} my={"100px"}>
             <NavLink to={"/about"} onClick={() => setDisplay("none")}>
               <Button
                 as={"a"}
                 variant={"ghost"}
-                aria-label="About"
+                aria-label='About'
                 w={"100%"}
-                mb={"30px"}>
+                mb={"30px"}
+              >
                 ABOUT
               </Button>
             </NavLink>
@@ -162,18 +173,20 @@ export default function Navbar() {
               <Button
                 as={"a"}
                 variant={"ghost"}
-                aria-label="Contact"
+                aria-label='Contact'
                 w={"100%"}
-                mb={"30px"}>
+                mb={"30px"}
+              >
                 CONTACT
               </Button>
             </NavLink>
             <NavLink to={"/price"} onClick={() => setDisplay("none")}>
               <Button
                 variant={"ghost"}
-                aria-label="Pricing"
+                aria-label='Pricing'
                 w={"100%"}
-                mb={"30px"}>
+                mb={"30px"}
+              >
                 PRICING
               </Button>
             </NavLink>
@@ -187,5 +200,5 @@ export default function Navbar() {
         </Flex>
       </Flex>
     </div>
-  );
+  )
 }
