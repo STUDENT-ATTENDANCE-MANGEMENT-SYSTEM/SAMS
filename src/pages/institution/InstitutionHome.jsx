@@ -64,7 +64,7 @@ export default function InstitutionHome() {
   return (
     <div>
       <SimpleGrid
-        columns={{ base: "2", lg: "3", xl: "3" }}
+        columns={{ base: "1", lg: "3", xl: "3" }}
         mt={"40px"}
         ml={"20px"}
         gap={10}
@@ -124,11 +124,12 @@ export default function InstitutionHome() {
       <Flex
         gap={5}
         mt={"30px"}
-        ml={{ base: "0px", lg: "20px", xl: "20px" }}
+        mr={"auto"}
+        ml={{ base: "auto", lg: "20px", xl: "20px" }}
         align={{ base: "center", lg: "normal", xl: "normal" }}
         flexDirection={{ base: "column", lg: "row", xl: "row" }}>
         <Box
-          width={{ base: "75%", md: "75%", lg: "50%", xl: "50%" }}
+          width={{ base: "90%", md: "100%", lg: "50%", xl: "50%" }}
           border={"1px solid lightpink"}
           borderRadius={"15px"}
           backgroundColor={"lightpink"}
@@ -155,7 +156,7 @@ export default function InstitutionHome() {
           <LineChart chartData={lineData} />
         </Box>
         <Box
-          width={{ base: "75%", md: "75%", lg: "40%", xl: "40%" }}
+          width={{ base: "90%", md: "100%", lg: "40%", xl: "40%" }}
           border={"2px solid black"}
           borderRadius={"15px"}
           p={"20px"}>

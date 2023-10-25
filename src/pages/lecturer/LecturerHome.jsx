@@ -38,14 +38,14 @@ export default function LecturerHome() {
   useEffect(() => {
     document.body.classList.add("bg-color");
   }, []);
-  const [lock, setLock] = useState(Array(data.length).fill(true))
+  const [lock, setLock] = useState(Array(data.length).fill(true));
   const handleOpen = (index) => {
     setLock((prevLock) => {
-      const updatedLock = [...prevLock]
-      updatedLock[index] = !lock[index]
-      return updatedLock
-    })
-}
+      const updatedLock = [...prevLock];
+      updatedLock[index] = !lock[index];
+      return updatedLock;
+    });
+  };
   return (
     <div>
       <SimpleGrid
