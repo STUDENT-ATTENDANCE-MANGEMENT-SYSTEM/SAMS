@@ -159,7 +159,9 @@ export default function StudentLayout() {
           <Flex borderBottom={"1px solid grey"} p={"10px"} align={"center"}>
             <Box
               display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
+
               mr={"0px"}
+
               zIndex={2000}>
               <Hamburger
                 rounded
@@ -174,13 +176,17 @@ export default function StudentLayout() {
                 }}
               />
             </Box>
+
             <Box ml={{ base: "10px", lg: "20px", xl: "25px" }}>
+
               <img src={logo} alt="logo" />
             </Box>
             <Spacer />
             <Flex
               align={"center"}
+
               gap={4}
+
               mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
               <IconButton
                 variant={"ghost"}

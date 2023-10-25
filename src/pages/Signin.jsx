@@ -1,22 +1,15 @@
-import React from "react";
+import React from "react"
 
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Spacer,
-} from "@chakra-ui/react";
-import student from "../images/student.png";
-import lecturer from "../images/tutor.png";
-import { NavLink, Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { Box, Button, Container, Flex, Heading, Spacer } from "@chakra-ui/react"
+import student from "../images/student.png"
+import lecturer from "../images/tutor.png"
+import { NavLink, Outlet } from "react-router-dom"
+import { useEffect } from "react"
 
 export default function Signin() {
   useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
+    document.body.classList.add("bg-color")
+  }, [])
 
   return (
     <div>
@@ -24,7 +17,8 @@ export default function Signin() {
         textAlign={"center"}
         mt={"100px"}
         fontSize={"5xl"}
-        color={"#213655"}>
+        color={"#213655"}
+      >
         Register Based on Your Role
       </Heading>
       <Flex
@@ -32,12 +26,14 @@ export default function Signin() {
         flexDir={{ base: "column", lg: "row", xl: "row" }}
         gap={10}
         mr={{ base: "auto", lg: "80px", xl: "300px" }}
+
         ml={{ base: "auto", lg: "80px", xl: "200px" }}>
+
         <NavLink to={"student"}>
           <Container>
             <Flex align={"center"} flexDir={"column"}>
               <Box w={"400px"} pb={"20px"}>
-                <img src={student} alt="student" />
+                <img src={student} alt='student' />
               </Box>
               <Button variant={"ghost"} color={"#213655"} fontSize={"4xl"}>
                 STUDENT
@@ -50,7 +46,7 @@ export default function Signin() {
           <Container>
             <Flex align={"center"} flexDir={"column"}>
               <Box w={"400px"} pb={"20px"}>
-                <img src={lecturer} alt="student" />
+                <img src={lecturer} alt='student' />
               </Box>
               <Button variant={"ghost"} fontSize={"4xl"} color={"#213655"}>
                 LECTURER
@@ -60,5 +56,5 @@ export default function Signin() {
         </NavLink>
       </Flex>
     </div>
-  );
+  )
 }

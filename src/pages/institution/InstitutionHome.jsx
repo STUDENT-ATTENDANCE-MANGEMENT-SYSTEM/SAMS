@@ -1,4 +1,5 @@
 import {
+
   Box,
   Button,
   Card,
@@ -200,7 +201,9 @@ export default function InstitutionHome() {
             </Text>
           </Flex>
         </Flex>
+
       </Flex>
     </div>
   );
 }
+

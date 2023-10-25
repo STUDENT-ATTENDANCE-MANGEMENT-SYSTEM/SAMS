@@ -27,9 +27,11 @@ export default function StudentMain() {
           You are yet to join an attendance tab
         </Text>
         <Flex justify={"center"} mt={"20px"} gap={"5"}>
+
           <Button mt={"10px"} w={"50%"} colorScheme="red" color={"white"}>
             Join
           </Button>
+
         </Flex>
       </Container>
     </div>
