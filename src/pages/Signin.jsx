@@ -26,8 +26,9 @@ export default function Signin() {
         flexDir={{ base: "column", lg: "row", xl: "row" }}
         gap={10}
         mr={{ base: "auto", lg: "80px", xl: "300px" }}
-        ml={{ base: "auto", lg: "80px", xl: "300px" }}
-      >
+
+        ml={{ base: "auto", lg: "80px", xl: "200px" }}>
+
         <NavLink to={"student"}>
           <Container>
             <Flex align={"center"} flexDir={"column"}>

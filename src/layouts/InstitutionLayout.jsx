@@ -37,10 +37,12 @@ import {
   MdSettingsSuggest,
   MdSsidChart,
   MdVisibility,
-} from "react-icons/md";
-import { useEffect, useState } from "react";
-import logo from "../images/logo.png";
-import { AddIcon, SearchIcon } from "@chakra-ui/icons";
+
+} from "react-icons/md"
+import { useEffect, useState } from "react"
+import logo from "../images/logo.png"
+import { AddIcon, SearchIcon } from "@chakra-ui/icons"
+
 export default function InstitutionLayout() {
   useEffect(() => {
 
@@ -308,7 +310,7 @@ export default function InstitutionLayout() {
           <Flex borderBottom={"1px solid grey"} p={"10px"} align={"center"}>
           <Box
                 display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
-                mr={"40px"}
+                mr={"10px"}
                 zIndex={2000}>
                 <Hamburger
                   rounded
@@ -323,11 +325,13 @@ export default function InstitutionLayout() {
                   }}
                 />
               </Box>
-            <Box ml={"25px"}>
-              <img src={logo} alt="logo" />
+
+            <Box ml={{ base: "10px", lg: "25px", xl: "25px" }}>
+              <img src={logo} alt='logo' />
+
             </Box>
             <Spacer />
-            <Flex align={"center"} gap={"7"} mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
+            <Flex align={"center"} gap={{ base: 3, lg: 10, xl: 10 }} mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
               <Tooltip
                 hasArrow
                 label="Copy institution code"
