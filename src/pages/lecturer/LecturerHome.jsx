@@ -49,7 +49,7 @@ export default function LecturerHome() {
   return (
     <div>
       <SimpleGrid
-        columns={{ base: "2", lg: "3", xl: "3" }}
+        columns={{ base: "1", lg: "3", xl: "3" }}
         mx={"20px"}
         gap={"10"}
         mt={"30px"}>

@@ -1,5 +1,4 @@
 import {
-
   Accordion,
   AccordionButton,
   AccordionIcon,
@@ -86,20 +85,33 @@ export default function LecturerLayout() {
         <ModalContent>
           <ModalHeader>Join an attendance</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Attendance</ModalBody>
+          <ModalBody>
+            <Text mb={"10px"}>
+              Ask your fellow lecturer for the course attendance tab, then enter it
+              below:
+            </Text>
+            <Input mb={"10px"} placeholder="attendance code" />
+            <Text>
+              If you ahve an issue joining the attendance, go to the{" "}
+              <Link to="/about" style={{ color: "blue" }}>
+                Help guide
+              </Link>
+            </Text>
+          </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onJoinClose}>
               Close
             </Button>
-            <Button variant="ghost">Join</Button>
+            <Button variant="ghost" onClick={onJoinClose} >Join</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
       <Modal
         initialFocusRef={initialRef}
         isOpen={isCreateOpen}
-        onClose={onCreateClose}>
+        onClose={onCreateClose}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create an attendance card</ModalHeader>
@@ -131,7 +143,8 @@ export default function LecturerLayout() {
               mr={3}
               onClick={() => {
                 handleSubmit();
-              }}>
+              }}
+            >
               Submit
             </Button>
             <Button onClick={onCreateClose}>Cancel</Button>
@@ -144,7 +157,8 @@ export default function LecturerLayout() {
             as={"aside"}
             colSpan={{ base: "0", lg: "2", xl: "1" }}
             minHeight={"100vh"}
-            borderRight={"2px solid black"}>
+            borderRight={"2px solid black"}
+          >
             <Flex mt={"40px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
                 Hello! Segun
@@ -215,12 +229,14 @@ export default function LecturerLayout() {
           pos={"absolute"}
           zIndex={1000}
           bgColor={"white"}
-          w={"250px"}>
+          w={"250px"}
+        >
           <GridItem
             as={"aside"}
             colSpan={{ base: "0", lg: "2", xl: "1" }}
             minHeight={"100vh"}
-            borderRight={"2px solid black"}>
+            borderRight={"2px solid black"}
+          >
             <Flex mt={"60px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
                 Hello! Segun
@@ -291,7 +307,8 @@ export default function LecturerLayout() {
             <Box
               display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
               mr={{ base: "10px" }}
-              zIndex={2000}>
+              zIndex={2000}
+            >
               <Hamburger
                 rounded
                 direction="right"
@@ -312,7 +329,8 @@ export default function LecturerLayout() {
             <Flex
               align={"center"}
               gap={{ base: 3, lg: 10, xl: 10 }}
-              mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
+              mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}
+            >
               <IconButton
                 variant={"ghost"}
                 colorScheme="white"
