@@ -75,7 +75,7 @@ export default function RegisterInstitution() {
 
           <Container mt={"40px"} mr={"auto"} ml={"auto"}>
             <Form method='post' action='/register-institution'>
-              {/* <FormControl mb={"30px"}>
+              <FormControl mb={"30px"}>
                 <InputGroup alignItems={"center"}>
                   <InputLeftElement pointerEvents={"none"}>
                     <Icon as={FaUser} color='gray' />
@@ -88,9 +88,9 @@ export default function RegisterInstitution() {
                     border={"1px solid gray"}
                   />
                 </InputGroup>
-              </FormControl> */}
+              </FormControl>
 
-              {/* <FormControl mb={"30px"}>
+              <FormControl mb={"30px"}>
                 <InputGroup>
                   <InputLeftElement pointerEvents={"none"}>
                     <EmailIcon color='gray' />
@@ -104,9 +104,9 @@ export default function RegisterInstitution() {
                     outline={"none"}
                   />
                 </InputGroup>
-              </FormControl> */}
+              </FormControl>
 
-              {/* <FormControl mb={"30px"}>
+              <FormControl mb={"30px"}>
                 <InputGroup>
                   <InputLeftElement>
                     <Box onClick={handleShow} variant={"ghost"}>
@@ -125,7 +125,7 @@ export default function RegisterInstitution() {
                     border={"1px solid gray"}
                   />
                 </InputGroup>
-              </FormControl> */}
+              </FormControl>
               <Flex justify={"center"} mb={"30px"}>
                 <Button type='submit' colorScheme='red' w={"30%"}>
                   Get Started
@@ -167,30 +167,8 @@ export default function RegisterInstitution() {
           </Container>
         </Flex>
       </GoogleOAuthProvider>
-      {/* <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque et
-        harum, accusantium, facilis facere velit at nisi mollitia aliquid
-        cupiditate ad adipisci quod! Nihil assumenda quia at reiciendis
-        consequuntur vero porro adipisci, quae dolor id quasi repudiandae
-        commodi facilis architecto itaque delectus ullam voluptatibus aliquam
-        iure a nesciunt nostrum ea! Illum explicabo error modi non et. Ut
-        tempora voluptatum est odit? Cupiditate consectetur, recusandae optio
-        repellendus at ullam ut. Ad deleniti voluptates saepe iusto est
-        excepturi, impedit eos iste mollitia blanditiis enim consequuntur
-        praesentium, accusantium expedita quis vel obcaecati, ullam distinctio
-        perferendis cupiditate voluptas. Fugiat corrupti, perspiciatis veritatis
-        laudantium adipisci rerum numquam quod nostrum ad? Qui hic perferendis
-        molestias atque animi voluptas voluptates aut exercitationem! In laborum
-        assumenda quod nam fugit placeat, tenetur dicta non illo soluta odio
-        dolore sapiente autem culpa reiciendis fuga, dolorem quasi alias id!
-        Voluptatum, officia? Corporis asperiores mollitia consequuntur ea
-        tenetur vero, adipisci, alias nesciunt voluptates praesentium ullam
-        assumenda itaque est ipsum, beatae at reprehenderit enim earum natus
-        fugit amet autem in dolorum? Ex nostrum perferendis quos maiores
-        doloribus iusto provident aliquam illum, accusamus magni voluptatum
-        nihil vero laboriosam itaque laudantium minus est sed corporis, harum
-        aut repellat. Veritatis rem voluptas impedit eos commodi?
-      </h1> */}
+   
+   
       {/* <Outlet /> */}
     </div>
   )
