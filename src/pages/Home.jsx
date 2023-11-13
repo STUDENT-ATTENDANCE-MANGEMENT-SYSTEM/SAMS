@@ -741,7 +741,7 @@ export const Home = () => {
       </SimpleGrid>
       <Footer />
 
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   )
 }
