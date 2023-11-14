@@ -15,14 +15,14 @@ export default function Signin() {
     <div>
       <Heading
         textAlign={"center"}
-        mt={"100px"}
+        mt={"40px"}
         fontSize={"5xl"}
         color={"#213655"}
       >
         Register Based on Your Role
       </Heading>
       <Flex
-        my={"80px"}
+        mt={"80px"}
         flexDir={{ base: "column", lg: "row", xl: "row" }}
         gap={10}
         mr={{ base: "auto", lg: "80px", xl: "300px" }}

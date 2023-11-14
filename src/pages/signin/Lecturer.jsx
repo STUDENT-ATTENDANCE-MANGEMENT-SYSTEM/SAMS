@@ -12,6 +12,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Spacer,
   Text,
 } from "@chakra-ui/react";
 import image from "../../images/25.png";
@@ -19,6 +20,7 @@ import { FaUser } from "react-icons/fa";
 import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import arrow from "../../images/arrow6.svg";
 import punct from "../../images/punct.svg";
+import logo from "../../images/logo.png";
 
 import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -46,12 +48,20 @@ export default function Lecturer(props) {
   console.log(props);
   return (
     <div>
+       <Flex flexDir={'row'} m={'20px'}>
+        <Box ml={'30px'}>
+          <img src={logo} alt="" />
+        </Box>
+        <Spacer />
+        <NavLink to={'/login'}><Button colorScheme={"red"} marginRight={'40px'}>Sign In</Button></NavLink>
+        
+      </Flex>
       <GoogleOAuthProvider clientId="950695587102-tshfvmoi0kj2fasfmiiem3ed022eaf19.apps.googleusercontent.com">
         <Flex
           flexDir={"column"}
-          mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
+          mt={{ base: "60px", md: "150px", lg: "100px", xl: "80px" }}
           bgColor={"white"}
-          py={"20px"}
+          borderRadius={"10px"}
           w={{ base: "90%", xl: "50%" }}
           mr={"auto"}
           ml={"auto"}>
@@ -59,8 +69,8 @@ export default function Lecturer(props) {
             flexDirection={"row"}
             justify={"center"}
             align={"center"}
-            mb={"20px"}>
-            <Box w={"30px"} mt={"20px"} mr={"10px"}>
+          >
+            <Box w={"4%"} mt={"20px"} mr={"10px"}>
               <img
                 src={punct}
                 style={{
@@ -75,7 +85,7 @@ export default function Lecturer(props) {
             </Heading>
           </Flex>
 
-          <Container mt={"40px"} mr={"auto"} ml={"auto"}>
+          <Container mt={"30px"} mr={"auto"} ml={"auto"}>
             <Form method="post" action="/signin/lecturer">
               <FormControl mb={"30px"}>
                 <InputGroup alignItems={"center"}>
@@ -128,19 +138,13 @@ export default function Lecturer(props) {
                   />
                 </InputGroup>
               </FormControl>
-              <Flex justify={"center"} mb={"30px"}>
-                <Button type="submit" colorScheme="red" w={"30%"}>
+              <Flex justify={"center"} mb={"10px"}>
+                <Button type="submit" colorScheme="red" w={"50%"}>
                   Get Started
                 </Button>
               </Flex>
 
-              <Text
-                textAlign={"center"}
-                mb={"20px"}
-                color={"gray"}
-                fontSize={"20px"}>
-                or
-              </Text>
+             
             </Form>
             <Flex justify={"center"} mb={"30px"}>
               <GoogleLogin
@@ -152,18 +156,7 @@ export default function Lecturer(props) {
                 }}
               />
             </Flex>
-            <Box
-              pos={"absolute"}
-              w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
-              bottom={"25%"}>
-              <img
-                src={arrow}
-                style={{
-                  filter:
-                    "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-                }}
-              />
-            </Box>
+            
           </Container>
         </Flex>
       </GoogleOAuthProvider>

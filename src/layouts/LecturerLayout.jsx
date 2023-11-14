@@ -36,7 +36,7 @@ import {
   Input,
   useSafeLayoutEffect,
 } from "@chakra-ui/react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   MdAnalytics,
   MdBook,
@@ -87,12 +87,12 @@ export default function LecturerLayout() {
           <ModalCloseButton />
           <ModalBody>
             <Text mb={"10px"}>
-              Ask your fellow lecturer for the course attendance tab, then enter it
-              below:
+              Ask your fellow lecturer for the course attendance tab, then enter
+              it below:
             </Text>
             <Input mb={"10px"} placeholder="attendance code" />
             <Text>
-              If you ahve an issue joining the attendance, go to the{" "}
+              If you have an issue joining the attendance, go to the{" "}
               <Link to="/about" style={{ color: "blue" }}>
                 Help guide
               </Link>
@@ -103,7 +103,9 @@ export default function LecturerLayout() {
             <Button colorScheme="blue" mr={3} onClick={onJoinClose}>
               Close
             </Button>
-            <Button variant="ghost" onClick={onJoinClose} >Join</Button>
+            <Button variant="ghost" onClick={onJoinClose}>
+              Join
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -145,7 +147,7 @@ export default function LecturerLayout() {
                 handleSubmit();
               }}
             >
-              Submit
+              Create
             </Button>
             <Button onClick={onCreateClose}>Cancel</Button>
           </ModalFooter>
@@ -159,23 +161,40 @@ export default function LecturerLayout() {
             minHeight={"100vh"}
             borderRight={"2px solid black"}
           >
-            <Flex mt={"40px"} ml={"10px"}>
+            <Flex mt={"20px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
-                Hello! Segun
+                Hello! Samson
               </Text>
             </Flex>
             <Flex justify={"center"}>
               <List spacing={10} mt={"70px"} cursor={"pointer"}>
-                <Link to={"home"}>
-                  <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+              <NavLink
+                  to={"/lecturer"}
+                  style={({ isActive }) => {
+                    return {
+                      color: isActive ? "Red" : "black",
+                    };
+                  }}
+                >
+                  <ListItem
+                    fontWeight={"bold"}
+                    cursor={"pointer"}
+                    pl={"20px"}
+                    _hover={{ color: "red" }}
+                  >
                     <ListIcon as={MdHome} boxSize={5} />
                     Home
                   </ListItem>
-                </Link>
+                </NavLink>
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box
+                        as="span"
+                        flex={"1"}
+                        textAlign={"left"}
+                        _hover={{ color: "red" }}
+                      >
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -193,7 +212,11 @@ export default function LecturerLayout() {
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
                       <Box as="span" flex={"1"} textAlign={"left"}>
-                        <ListItem fontWeight={"bold"} cursor={"pointer"}>
+                        <ListItem
+                          fontWeight={"bold"}
+                          cursor={"pointer"}
+                          _hover={{ color: "red" }}
+                        >
                           <ListIcon as={MdAnalytics} boxSize={5} />
                           Insight
                         </ListItem>
@@ -207,11 +230,21 @@ export default function LecturerLayout() {
                   </AccordionItem>
                 </Accordion>
 
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdSettings} boxSize={5} />
                   Setting
                 </ListItem>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdContactSupport} boxSize={5} />
                   Support and Help
                 </ListItem>
@@ -353,7 +386,7 @@ export default function LecturerLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
-                    name="Segun Showunmi"
+                    name="Adenuga Samuel"
                     src="https://bit.ly/broken-link"
                   />
                 </WrapItem>

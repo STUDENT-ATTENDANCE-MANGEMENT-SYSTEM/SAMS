@@ -118,13 +118,13 @@ const router = createBrowserRouter(
         <Route path='price' element={<Price />} />
         <Route path='contact' element={<Contact />} />
         <Route path='login' element={<Login />} />
+      </Route>
+      <Route path='signin' element={<RegisterLayout />}>
         <Route
           path='register-institution'
           element={<Register_Institution />}
           action={institutionRegister}
         />
-      </Route>
-      <Route path='signin' element={<RegisterLayout />}>
         <Route index element={<Signin />} />
         <Route path='student' element={<Student />} action={studentRegister} />
         <Route
@@ -133,15 +133,15 @@ const router = createBrowserRouter(
           action={lecturerRegister}
         />
       </Route>
-      <Route path='lecturer' element={<LecturerLayout />}>
-        <Route index element={<LecturerMain />} />
-        <Route path='home' element={<LecturerHome />} />
+  <Route path='lecturer' element={<LecturerLayout />}>
+            
+        <Route index element={<LecturerHome />} />
       </Route>
       <Route path='student' element={<StudentLayout />}>
         <Route index element={<StudentMain />} />
       </Route>
       <Route path='institution' element={<InstitutionLayout />}>
-        <Route index element={<InstitutionMain />} />
+       <Route index element={<InstitutionMain />} />
         <Route path='home' element={<InstitutionHome />} />
       </Route>
       <Route path='*' element={<NotFound />} />

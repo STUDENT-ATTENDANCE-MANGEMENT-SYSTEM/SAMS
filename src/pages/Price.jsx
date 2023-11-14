@@ -89,7 +89,7 @@ export default function Price() {
         <Flex
           flexDir={"column"}
           align={{ base: "center", lg: "left", xl: "left" }}
-          ml={{ base: "20px", md: "40px", lg: "50px", xl: "250px" }}
+          ml={{ base: "20px", md: "40px", lg: "50px", xl: "40px" }}
           pt={"80px"}
         >
           <Heading
@@ -110,7 +110,7 @@ export default function Price() {
             alt='price-tag'
             style={{
               height: "auto",
-              width: "100%",
+              width: "90%",
               minWidth: "450px",
               maxWidth: "600px",
             }}

@@ -208,7 +208,7 @@ export const Home = () => {
             flexDir={{ base: "column", md: "column", lg: "row", xl: "row" }}
           >
             <Button sx={firstRegister}>
-              <NavLink to={"register-institution"}>
+              <NavLink to={"signin/register-institution"}>
                 Register your Institution
               </NavLink>
             </Button>

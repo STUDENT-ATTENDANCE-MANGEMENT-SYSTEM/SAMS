@@ -1,5 +1,4 @@
 import {
-
   Box,
   Button,
   Card,
@@ -69,7 +68,8 @@ export default function InstitutionHome() {
         mt={"40px"}
         ml={"20px"}
         gap={10}
-        mr={"40px"}>
+        mr={"40px"}
+      >
         <Card pl={"20px"} ml={"20px"}>
           <CardHeader>
             <Icon as={MdPeopleAlt} boxSize={10} mb={"-40px"} />
@@ -125,16 +125,18 @@ export default function InstitutionHome() {
       <Flex
         gap={5}
         mt={"30px"}
-        mr={"auto"}
+        mr={"20px"}
         ml={{ base: "auto", lg: "20px", xl: "20px" }}
         align={{ base: "center", lg: "normal", xl: "normal" }}
-        flexDirection={{ base: "column", lg: "row", xl: "row" }}>
+        flexDirection={{ base: "column", lg: "row", xl: "row" }}
+      >
         <Box
           width={{ base: "90%", md: "100%", lg: "50%", xl: "50%" }}
           border={"1px solid lightpink"}
           borderRadius={"15px"}
           backgroundColor={"lightpink"}
-          p={"10px"}>
+          p={"10px"}
+        >
           <Flex>
             <Text fontWeight={"bold"} p={"10px"}>
               Attendance Rate Analysis
@@ -144,7 +146,8 @@ export default function InstitutionHome() {
               <MenuButton
                 as={Button}
                 bgColor={"lightpink"}
-                rightIcon={<ChevronDownIcon />}>
+                rightIcon={<ChevronDownIcon />}
+              >
                 Current Month
               </MenuButton>
               <MenuList bgColor={"lightpink"}>
@@ -157,10 +160,11 @@ export default function InstitutionHome() {
           <LineChart chartData={lineData} />
         </Box>
         <Box
-          width={{ base: "90%", md: "100%", lg: "40%", xl: "40%" }}
+          width={{ base: "90%", md: "100%", lg: "50%", xl: "50%" }}
           border={"2px solid black"}
           borderRadius={"15px"}
-          p={"20px"}>
+          p={"20px"}
+        >
           <BarChart chartData={userData} />
           <Flex>
             <Text fontWeight={"bold"} pt={"10px"}>
@@ -171,8 +175,9 @@ export default function InstitutionHome() {
               <MenuButton
                 as={Button}
                 bgColor={"transparent"}
-                rightIcon={<ChevronDownIcon />}>
-                Current Month
+                rightIcon={<ChevronDownIcon />}
+              >
+                Today
               </MenuButton>
               <MenuList>
                 <MenuItem>Yesterday</MenuItem>
@@ -182,28 +187,27 @@ export default function InstitutionHome() {
             </Menu>
           </Flex>
         </Box>
-        <Flex flexDirection={"column"}>
-          <Flex
-            flexDirection={"column"}
-            align={"center"}
-            w={"260px"}
-            border={"2px solid #ffefd3"}
-            borderRadius={"15px"}
-            backgroundColor={"#ffefd3"}
-            h={"230px"}>
-            <Box
-              width={{ base: "50%", md: "75%", lg: "50%", xl: "50%" }}
-              mt={"-20px"}>
-              <img src={Saving} alt="saving" />
-            </Box>
-            <Text pr={"10px"} pl={"20px"} pt={"20px"}>
-              You have 10 days left on your subscription
-            </Text>
-          </Flex>
-        </Flex>
 
+        <Flex
+          flexDirection={"column"}
+          align={"center"}
+          w={"25%"}
+          border={"2px solid #ffefd3"}
+          borderRadius={"15px"}
+          backgroundColor={"#ffefd3"}
+          h={"200px"}
+        >
+          <Box
+            width={{ base: "50%", md: "75%", lg: "50%", xl: "50%" }}
+            mt={"-20px"}
+          >
+            <img src={Saving} alt="saving" />
+          </Box>
+          <Text pr={"10px"} pl={"20px"} pt={"20px"}>
+            You have 10 days left on your subscription
+          </Text>
+        </Flex>
       </Flex>
     </div>
   );
 }
-
