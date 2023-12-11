@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Icon,
-  IconButton,
-  Spacer,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import logo from "../images/logo.png";
 import { useEffect, useState } from "react";
