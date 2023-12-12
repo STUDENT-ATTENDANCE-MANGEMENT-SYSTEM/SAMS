@@ -356,7 +356,7 @@ export default function LecturerLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
-                    name='Segun Showunmi'
+                    name={`${lecturer?.firstName} ${lecturer?.lastName}`}
                     src='https://bit.ly/broken-link'
                   />
                 </WrapItem>

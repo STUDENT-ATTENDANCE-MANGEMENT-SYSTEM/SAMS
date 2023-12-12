@@ -142,7 +142,7 @@ export default function Lecturer() {
           <Form
             w={"90%"}
             method='post'
-            action='/signin/lecturer'
+            // action='/signin/lecturer'
             onSubmit={handleSubmit}
           >
             {!isMember && (
