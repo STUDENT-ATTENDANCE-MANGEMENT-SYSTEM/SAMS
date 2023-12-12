@@ -260,12 +260,7 @@ export default function Lecturer() {
               )}
             </FormControl>
             <Flex justify={"center"} mb={"2rem"}>
-              <Button
-                type='submit'
-                colorScheme='red'
-                w={"30%"}
-                // onClick={handleSubmit}
-              >
+              <Button type='submit' colorScheme='red' w={"30%"}>
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
@@ -282,22 +277,12 @@ export default function Lecturer() {
           <Flex justify={"center"} mb={"2rem"}>
             <Link
               textAlign={"center"}
-              // mb={"20px"}
               color={"gray"}
               fontSize={"20px"}
               onClick={() => setIsMember(!isMember)}
             >
               {isMember ? "Get started" : "Log in"}
             </Link>
-            {/* <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  // console.log(credentialResponse)
-                }}
-                onError={() => {
-                  return
-                  // console.log("Login Failed")
-                }}
-              /> */}
           </Flex>
           <Box
             pos={"absolute"}
@@ -320,19 +305,3 @@ export default function Lecturer() {
     </div>
   )
 }
-
-// export const lecturerRegister = async ({ request }) => {
-//   console.log(request)
-//   const data = await request.formData()
-
-//   const submission = {
-//     lecturerName: data.get("name"),
-//     lecturerEmail: data.get("email"),
-//     lecturerPassword: data.get("password"),
-//   }
-
-//   localStorage.setItem("Lecturer", JSON.stringify(submission))
-
-//   // console.log(submission)
-//   return redirect("/lecturer")
-// }
