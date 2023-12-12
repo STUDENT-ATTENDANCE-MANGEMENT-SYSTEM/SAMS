@@ -24,24 +24,27 @@ import {
   Tooltip,
   Wrap,
   WrapItem,
-} from "@chakra-ui/react";
-import Hamburger from "hamburger-react";
-import { Link, Outlet } from "react-router-dom";
+} from "@chakra-ui/react"
+import Hamburger from "hamburger-react"
+import { appContext } from "../App"
+import { Link, Outlet } from "react-router-dom"
 import {
   MdAnalytics,
   MdBook,
   MdContactSupport,
   MdHome,
   MdSettings,
-} from "react-icons/md";
-import { useEffect, useState } from "react";
-import logo from "../images/logo.png";
-import { AddIcon, BellIcon, SearchIcon } from "@chakra-ui/icons";
+} from "react-icons/md"
+import { useEffect, useState, useContext } from "react"
+import logo from "../images/logo.png"
+
+import { AddIcon, BellIcon, SearchIcon } from "@chakra-ui/icons"
 export default function StudentLayout() {
   useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
-  const [display, setDisplay] = useState("none");
+    document.body.classList.add("bg-color")
+  }, [])
+  const [display, setDisplay] = useState("none")
+  const { student } = useContext(appContext)
 
   return (
     <div>
@@ -51,10 +54,11 @@ export default function StudentLayout() {
             as={"aside"}
             colSpan={{ base: "0", lg: "2", xl: "1" }}
             minHeight={"100vh"}
-            borderRight={"2px solid black"}>
+            borderRight={"2px solid black"}
+          >
             <Flex mt={"60px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
-                Hello! Segun
+                Hello! {student?.firstName}
               </Text>
             </Flex>
             <Flex justify={"center"}>
@@ -66,7 +70,7 @@ export default function StudentLayout() {
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -90,7 +94,7 @@ export default function StudentLayout() {
                   Support and Help
                 </ListItem>
                 <ListItem>
-                  <Button colorScheme="red" p={"10px"} w={"75%"}>
+                  <Button colorScheme='red' p={"10px"} w={"75%"}>
                     Logout
                   </Button>
                 </ListItem>
@@ -103,15 +107,17 @@ export default function StudentLayout() {
           pos={"absolute"}
           zIndex={1000}
           bgColor={"white"}
-          w={"250px"}>
+          w={"250px"}
+        >
           <GridItem
             as={"aside"}
             colSpan={{ base: "0", lg: "2", xl: "1" }}
             minHeight={"100vh"}
-            borderRight={"2px solid black"}>
+            borderRight={"2px solid black"}
+          >
             <Flex mt={"60px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
-                Hello! Segun
+                Hello! {student?.firstName}
               </Text>
             </Flex>
             <Flex justify={"center"}>
@@ -123,7 +129,7 @@ export default function StudentLayout() {
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -147,7 +153,7 @@ export default function StudentLayout() {
                   Support and Help
                 </ListItem>
                 <ListItem>
-                  <Button colorScheme="red" p={"10px"} w={"75%"}>
+                  <Button colorScheme='red' p={"10px"} w={"75%"}>
                     Logout
                   </Button>
                 </ListItem>
@@ -159,49 +165,47 @@ export default function StudentLayout() {
           <Flex borderBottom={"1px solid grey"} p={"10px"} align={"center"}>
             <Box
               display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
-
               mr={"0px"}
-
-              zIndex={2000}>
+              zIndex={2000}
+            >
               <Hamburger
                 rounded
-                direction="right"
+                direction='right'
                 duration={0.5}
                 onToggle={(toggled) => {
                   if (toggled) {
-                    setDisplay("grid");
+                    setDisplay("grid")
                   } else {
-                    setDisplay("none");
+                    setDisplay("none")
                   }
                 }}
               />
             </Box>
 
             <Box ml={{ base: "10px", lg: "20px", xl: "25px" }}>
-
-              <img src={logo} alt="logo" />
+              <img src={logo} alt='logo' />
             </Box>
             <Spacer />
             <Flex
               align={"center"}
-
               gap={4}
-
-              mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}>
+              mr={{ base: "10px", md: "50px", lg: "130px", xl: "150px" }}
+            >
               <IconButton
                 variant={"ghost"}
-                colorScheme="white"
+                colorScheme='white'
                 icon={<BellIcon />}
               />
               <Tooltip
                 hasArrow
-                label="Join attendance"
+                label='Join attendance'
                 bg={"white"}
                 color={"black"}
-                p={"10px"}>
+                p={"10px"}
+              >
                 <IconButton
                   variant={"ghost"}
-                  colorScheme="white"
+                  colorScheme='white'
                   icon={<AddIcon />}
                 />
               </Tooltip>
@@ -209,8 +213,8 @@ export default function StudentLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
-                    name="Segun Showunmi"
-                    src="https://bit.ly/broken-link"
+                    name={`${student?.firstName} ${student?.lastName}`}
+                    src='https://bit.ly/broken-link'
                   />
                 </WrapItem>
               </Wrap>
@@ -220,5 +224,5 @@ export default function StudentLayout() {
         </GridItem>
       </Grid>
     </div>
-  );
+  )
 }
