@@ -106,7 +106,7 @@ export const Home = () => {
   const SlideIn = {
     initial: {
       opacity: 0,
-      x: 400,
+      x: 100,
     },
     animate: {
       opacity: 1,
@@ -207,12 +207,6 @@ export const Home = () => {
           variants={SlideIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={{
-            delay: 1.2,
-            ease: "ease-in",
-            duration: 4,
-            type: "tween",
-          }}
           viewport={{
             once: true,
           }}
@@ -220,6 +214,7 @@ export const Home = () => {
           ml={"auto"}
           mr={"auto"}
           mt={{ base: "-100px", lg: "40px", xl: "50px" }}
+          transition={'all .6s'}
         >
           <img
             src={topImage}
@@ -239,7 +234,7 @@ export const Home = () => {
           variants={fadeIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={{ delay: 2.5, ease: "ease-in" }}
+          transition={'all .6s'}
           viewport={{
             once: true,
           }}
@@ -270,7 +265,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={{ delay: 1.2, ease: "ease-in" }}
+            transition={'all .6s'}
             viewport={{
               once: true,
             }}
@@ -285,7 +280,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={{ delay: 1.7, ease: "ease-in" }}
+            transition={'all .6s'}
             viewport={{
               once: true,
             }}
@@ -307,7 +302,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={{ delay: 1.3, ease: "ease-in" }}
+            transition={'all .6s'}
             viewport={{
               once: true,
             }}
@@ -323,7 +318,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={{ delay: 1.3, ease: "ease-in" }}
+             transition={'all .6s'}
             viewport={{
               once: true,
             }}
@@ -377,12 +372,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{
-                delay: 1.5,
-                ease: "ease-in",
-                type: "tween",
-                duration: 3,
-              }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -397,7 +387,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.3, ease: "ease-in" }}
+              transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -430,7 +420,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.3, ease: "ease-in" }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -457,12 +447,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{
-                delay: 1.5,
-                ease: "ease-in",
-                type: "tween",
-                duration: 3,
-              }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -485,12 +470,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{
-                delay: 1.5,
-                ease: "ease-in",
-                type: "tween",
-                duration: 3,
-              }}
+              transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -505,7 +485,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.3, ease: "ease-in" }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -537,7 +517,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.3, ease: "ease-in" }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -562,12 +542,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{
-                delay: 1.5,
-                ease: "ease-in",
-                type: "tween",
-                duration: 3,
-              }}
+              transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -590,12 +565,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{
-                delay: 1.5,
-                ease: "ease-in",
-                type: "tween",
-                duration: 3,
-              }}
+              transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -611,7 +581,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.3, ease: "ease-in" }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -643,7 +613,7 @@ export const Home = () => {
                 variants={fadeInto}
                 initial={"initial"}
                 whileInView={"animate"}
-                transition={{ delay: 1.4, ease: "ease-in" }}
+                 transition={'all .6s'}
                 viewport={{
                   once: true,
                 }}
@@ -667,7 +637,7 @@ export const Home = () => {
               variants={fadeInto}
               initial={"initial"}
               whileInView={"animate"}
-              transition={{ delay: 1.4, ease: "ease-in" }}
+               transition={'all .6s'}
               viewport={{
                 once: true,
               }}
@@ -705,7 +675,7 @@ export const Home = () => {
           variants={fadeIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={{ delay: 1.3, ease: "ease-in" }}
+          transition={'all .6s'}
           viewport={{
             once: true,
           }}
@@ -743,12 +713,7 @@ export const Home = () => {
           variants={SlideIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={{
-            delay: 1.5,
-            ease: "ease-in",
-            type: "tween",
-            duration: 3,
-          }}
+           transition={'all .6s'}
           viewport={{
             once: true,
           }}

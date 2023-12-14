@@ -52,19 +52,19 @@ export default function Navbar() {
         whileInView={{ opacity: 1 }}
         ml={"0px"}
         mt={"0px"}
-        py={"20px"}
+        py={"1.3em"}
         boxShadow={shadow}
         backgroundColor={background}
         w={"100vw"}
         pos={"fixed"}
         zIndex={100}
-        top={"0px"}
+        top={"0"}
         transition={"all 1s"}
       >
         <Box
           mx={{ base: "3%", md: "3%", lg: "5%", xl: "5%" }}
           w={"100%"}
-          mt={"10px"}
+        
         >
           <NavLink to={"/"}>
             <img src={logo} alt="logo" />
@@ -73,7 +73,7 @@ export default function Navbar() {
         <Spacer />
         <Flex display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}>
           <NavLink
-            to={"/about"}
+            to={"/construction"}
             style={({ isActive }) => {
               return {
                 color: isActive ? "Red" : "green",
@@ -86,7 +86,7 @@ export default function Navbar() {
               _hover={{ color: "red" }}
               aria-label="About"
               w={"100%"}
-              mr={"50px"}
+              mr={"3em"}
             >
               ABOUT
             </Button>
@@ -105,13 +105,13 @@ export default function Navbar() {
               aria-label="Contact"
               _hover={{ color: "red" }}
               w={"100%"}
-              mr={"50px"}
+              mr={"3em"}
             >
               CONTACT
             </Button>
           </NavLink>
           <NavLink
-            to={"/price"}
+            to={"/contruction"}
             style={({ isActive }) => {
               return {
                 color: isActive ? "Red" : "black",
@@ -133,15 +133,15 @@ export default function Navbar() {
         <Button
           display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}
           sx={componentButton}
-          mr={{ base: "30px", md: "50px", lg: "70px", xl: "100px" }}
-          ml={{ base: "50px", md: "0px", lg: "30px", xl: "100px" }}
-          px={{ base: "30px", md: "30px", lg: "40px", xl: "40px" }}
+          mx={"3em"}
+
+          w={'30%'}
         >
-          <NavLink to={"/login"}>Sign in</NavLink>
+          <NavLink to={"/construction"}>Register as a Parent</NavLink>
         </Button>
         <Box
           display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
-          mr={"40px"}
+          mr={"2.4em"}
         >
           <Hamburger
             rounded
@@ -170,14 +170,14 @@ export default function Navbar() {
           display={display}
           transition={"all 1s"}
         >
-          <Flex flexDir={"column"} align={"center"} my={"100px"}>
-            <NavLink to={"/about"} onClick={() => setDisplay("none")}>
+          <Flex flexDir={"column"} align={"center"} my={"4em"}>
+            <NavLink to={"/construction"} onClick={() => setDisplay("none")}>
               <Button
                 as={"a"}
                 variant={"ghost"}
                 aria-label="About"
                 w={"100%"}
-                mb={"30px"}
+                mb={"1.5em"}
               >
                 ABOUT
               </Button>
@@ -188,26 +188,24 @@ export default function Navbar() {
                 variant={"ghost"}
                 aria-label="Contact"
                 w={"100%"}
-                mb={"30px"}
+                mb={"1.5em"}
               >
                 CONTACT
               </Button>
             </NavLink>
-            <NavLink to={"/price"} onClick={() => setDisplay("none")}>
+            <NavLink to={"/construction"} onClick={() => setDisplay("none")}>
               <Button
                 variant={"ghost"}
                 aria-label="Pricing"
                 w={"100%"}
-                mb={"30px"}
+                mb={"1.5em"}
               >
                 PRICING
               </Button>
             </NavLink>
-            <Button sx={componentButton} mb={"30px"} w={"20%"}>
-              Sign Up
-            </Button>
-            <Button variant={"ghost"} sx={secondRegister} w={"20%"}>
-              Sign In
+            
+            <Button variant={"ghost"} sx={componentButton} w={"50%"}>
+              Register as a Parent
             </Button>
           </Flex>
         </Flex>

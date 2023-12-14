@@ -4,20 +4,20 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Routes,
-} from "react-router-dom"
-import { useState, createContext } from "react"
+} from "react-router-dom";
+import { useState, createContext } from "react";
 
-import "./App.css"
-import { Home } from "./pages/Home"
-import About from "./pages/About"
-import Price from "./pages/Price"
-import Contact from "./pages/Contact"
-import Login from "./pages/Login"
-import RootLayouts from "./layouts/RootLayouts"
-import NotFound from "./pages/NotFound"
+import "./App.css";
+import { Home } from "./pages/Home";
+import About from "./pages/About";
+import Price from "./pages/Price";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import RootLayouts from "./layouts/RootLayouts";
+import NotFound from "./pages/NotFound";
 
-import Student, { studentRegister } from "./pages/signin/Student"
-import Lecturer from "./pages/signin/Lecturer"
+import Student, { studentRegister } from "./pages/signin/Student";
+import Lecturer from "./pages/signin/Lecturer";
 import Register_Institution, {
   institutionRegister,
 } from "./pages/Register_Institution";
@@ -32,9 +32,9 @@ import LecturerHome from "./pages/lecturer/LecturerHome";
 import InstitutionLayout from "./layouts/InstitutionLayout";
 import Construction from "./pages/Construction";
 import InstitutionHome from "./pages/institution/InstitutionHome";
-import ProtectedRoute from "./layouts/ProtectedRoute"
+import ProtectedRoute from "./layouts/ProtectedRoute";
 
-export const appContext = createContext()
+export const appContext = createContext();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,10 +53,10 @@ const router = createBrowserRouter(
           action={institutionRegister}
         />
       </Route>
-      <Route path='signin' element={<RegisterLayout />}>
+      <Route path="signin" element={<RegisterLayout />}>
         <Route index element={<Signin />} />
         <Route
-          path='student'
+          path="student"
           element={<Student />}
           // action={studentRegister}
         />
@@ -67,7 +67,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route
-        path='lecturer'
+        path="lecturer"
         element={
           <ProtectedRoute>
             <LecturerLayout />
@@ -75,7 +75,7 @@ const router = createBrowserRouter(
         }
       >
         <Route index element={<LecturerMain />} />
-        <Route path='home' element={<LecturerHome />} />
+        <Route path="home" element={<LecturerHome />} />
       </Route>
       <Route path="student" element={<StudentLayout />}>
         <Route index element={<StudentMain />} />
@@ -91,13 +91,13 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const [student, setStudent] = useState(null)
-  const [lecturer, setLecturer] = useState(null)
+  const [student, setStudent] = useState(null);
+  const [lecturer, setLecturer] = useState(null);
   return (
     <appContext.Provider value={{ student, setStudent, lecturer, setLecturer }}>
       <RouterProvider router={router} />
     </appContext.Provider>
-  )
+  );
 }
 
 export default App;

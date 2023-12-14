@@ -68,7 +68,6 @@ export default function Price() {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <Flex
         flexDir={"row"}
         align={"center"}
@@ -131,23 +130,17 @@ export default function Price() {
               my={"1.5em"}
             >
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Small Sized Institution :" + " NGN 3,000")
-                    }
-                  >
+                <Box>
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
                         <Box w={"4em"} py={"1.4em"}>
                           <img src={anchor} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={'center'}>
                           NGN 3,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -180,30 +173,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
+                <Link to={"/construction"}>
                   <Button my={"1.4em"} color={"white"} colorScheme="red">
-                    Try Free Trg
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Medium Sized Institution :" + " NGN 5,000")
-                    }
-                  >
+                <Box>
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={target} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 5,000/mo
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={'center'}>
+                          NGN 5,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -237,30 +224,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Large Sized Institution :" + " NGN 7,000")
-                    }
-                  >
+                <Box>
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={rocket} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 7,000/mo
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={'center'}>
+                          NGN 7,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -294,30 +275,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Very Large Sized Institution :" + " NGN 9,000")
-                    }
-                  >
+                <Box>
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={diamond} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 9,000/mo
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={'center'}>
+                          NGN 9,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -351,9 +326,9 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
@@ -367,26 +342,18 @@ export default function Price() {
               my={"30px"}
             >
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Small Sized Institution : " + " NGN 30,000")
-                    }
-                  >
+                <Box >
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={anchor} alt="basic" />
                         </Box>
 
-                        {/* <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 30,000/yr
-                        </Heading> */}
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 30,000/yr
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={"center"}>
+                          NGN 30,000
                         </Heading>
                         <Link to={"institution"}></Link>
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -419,30 +386,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Medium Sized Institution :" + " NGN 50,000")
-                    }
-                  >
+                <Box >
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={target} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 50,000/yr
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={"center"}>
+                          NGN 50,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -476,30 +437,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount("Large Sized Institution :" + " NGN 70,000")
-                    }
-                  >
+                <Box >
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={rocket} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 70,000/yr
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={"center"}>
+                          NGN 70,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -533,32 +488,24 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
               <Flex align={"center"} flexDir={"column"}>
-                <Box onClick={onOpen}>
-                  <Card
-                    onClick={() =>
-                      setAmount(
-                        "Very Large Sized Institution :" + " NGN 90,000"
-                      )
-                    }
-                  >
+                <Box >
+                  <Card>
                     <CardHeader borderBottom={"1px solid grey"}>
                       <Flex flexDir={"column"} align={"center"}>
-                        <Box w={"60px"} py={"20px"}>
+                        <Box w={"4em"} py={"1.4em"}>
                           <img src={diamond} alt="basic" />
                         </Box>
 
-                        <Heading fontFamily={"mono"} pb={"20px"}>
-                          NGN 90,000/yr
+                        <Heading fontFamily={"mono"} pb={"1em"} textAlign={"center"}>
+                          NGN 90,000
                         </Heading>
-
-                    
                       </Flex>
                     </CardHeader>
                     <CardBody>
@@ -592,9 +539,9 @@ export default function Price() {
                     <CardFooter></CardFooter>
                   </Card>
                 </Box>
-                <Link to={"/institution/home"}>
-                  <Button my={"20px"} color={"white"} colorScheme="red">
-                    Try Free Trial
+                <Link to={"/construction"}>
+                  <Button my={"1.4em"} color={"white"} colorScheme="red">
+                    Select Plan
                   </Button>
                 </Link>
               </Flex>
@@ -602,53 +549,7 @@ export default function Price() {
           </TabPanel>
         </TabPanels>
       </Tabs>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Almost there!</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Flex flexDir={"row"} align={"center"}>
-              <Text fontSize={"30px"}>{amount}</Text>
-            </Flex>
 
-            <Flex align={"center"} pt={"20px"}>
-              <IconButton as={StarIcon} size={"10px"} />
-              <Text px={"10px"}>Pick your preferred payment options</Text>
-            </Flex>
-          </ModalBody>
-          <ModalFooter>
-            <Flex flexDir={"row"} align={"center"} gap={6} pr={"30px"}>
-              <Link to={"/"}>
-                <Box w={"50px"}>
-                  <img src={visa} alt="visa" />
-                </Box>
-              </Link>
-
-              <Link to={"/"}>
-                <Box w={"50px"}>
-                  <img src={mastercard} alt="visa" />
-                </Box>
-              </Link>
-              <Link to={"/paystack-check-out"}>
-                <Box w={"70px"}>
-                  <img src={paystack} alt="visa" />
-                </Box>
-              </Link>
-              <Link>
-                <Box w={"50px"}>
-                  <img src={chimoney} alt="visa" />
-                </Box>
-              </Link>
-              <Link to={"/"}>
-                <Box w={"30px"}>
-                  <img src={googlepay} alt="visa" />
-                </Box>
-              </Link>
-            </Flex>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
       <Footer />
       <Outlet />
     </div>

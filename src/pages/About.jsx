@@ -26,23 +26,7 @@ export default function Price() {
   };
   return (
     <div>
-      <Container py={"60px"}>
-        <Heading>Page in development</Heading>
-        <HStack py={"20px"}>
-          <Text px={"10px"} fontWeight={"semibold"}>
-            Check back
-          </Text>
-          <Button sx={buttonReturn}>
-            <NavLink to="/">Return home</NavLink>
-          </Button>
-        </HStack>
-      </Container>
-      <Box
-        width={{ md: "700px", lg: "900px" }}
-        ml={{ md: "70px", lg: "400px" }}
-        my={{ base: "0px", lg: "-70px" }}>
-        <img src={image} alt="image" />
-      </Box>
+      
     </div>
   );
 }
