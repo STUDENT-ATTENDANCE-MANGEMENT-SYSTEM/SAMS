@@ -145,7 +145,7 @@ export const Home = () => {
             <DrawerBody>
               <Container>
                 <Text>
-                  This website uses cookies and other tracking technologies
+                  This website uses cookies and other tracking technologies to
                   improve your experience on our website. By using our website,
                   you consent to all cookies in accordance with our Cookie
                   Policy
@@ -196,7 +196,7 @@ export const Home = () => {
               <Button sx={firstRegister}>Register your Institution</Button>
             </NavLink>
 
-            <NavLink to={"signin/sign-in"}>
+            <NavLink to={"signin"}>
               {" "}
               <Button sx={secondRegister}>Signup as Tutor/Student</Button>
             </NavLink>
@@ -732,9 +732,9 @@ export const Home = () => {
             <Box w={"50px"} mr={"10px"} mb={"10px"}>
               <img src={cornerarrow} alt="corner-arrow" />
             </Box>
-            <Link to={"/price"}>
+            <Link to={"/construction"}>
               {" "}
-              <Text color={"#f2575d"}>Get Started</Text>
+              <Text fontWeight={900} fontSize={'1.2rem'} color={"#f2575d"}>Request Demo</Text>
             </Link>
           </HStack>
         </Container>

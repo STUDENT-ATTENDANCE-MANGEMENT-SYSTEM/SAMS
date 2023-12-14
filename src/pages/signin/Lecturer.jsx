@@ -21,7 +21,7 @@ import { FaUser } from "react-icons/fa"
 import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import arrow from "../../images/arrow6.svg"
 import punct from "../../images/punct.svg"
-
+import logo from "../../images/logo.png"
 import { GoogleLogin } from "@react-oauth/google"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { useContext, useEffect, useState } from "react"
@@ -96,6 +96,8 @@ export default function Lecturer() {
       }
     }
     setErrors(errors)
+
+    
   }
 
   const buttonReturn = {
@@ -109,9 +111,19 @@ export default function Lecturer() {
 
   return (
     <div>
+      <Flex flexDir={"row"} m={"20px"}>
+        <Box ml={10}>
+          <img src={logo} alt="" />
+        </Box>
+        <Spacer />
+        <Button colorScheme={"red"} marginRight={"40px"}  onClick={() => setIsMember(!isMember)}>
+        {isMember ? "Sign up" : "Sign in"}
+        </Button>
+      </Flex>
+      
       <Flex
         flexDir={"column"}
-        mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
+        mt={{ base: "60px", md: "150px", lg: "100px", xl: "3.5em" }}
         bgColor={"white"}
         py={"20px"}
         w={{ base: "90%", xl: "50%" }}
@@ -122,20 +134,10 @@ export default function Lecturer() {
           flexDirection={"row"}
           justify={"center"}
           align={"center"}
-          mb={"1.5rem"}
+          mb={"2.5em"}
         >
-          <Box w={"30px"} mt={"20px"} mr={"10px"}>
-            <img
-              src={punct}
-              style={{
-                filter:
-                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-              }}
-            />
-          </Box>
-
           <Heading fontFamily={"mono"} color={"#213655"}>
-            {isMember ? "Log in" : "Sign Up as a Lecturer"}{" "}
+            {isMember ? "Login" : "Sign up as a Lecturer"}{" "}
           </Heading>
         </Flex>
 
@@ -143,7 +145,6 @@ export default function Lecturer() {
           <Form
             w={"90%"}
             method='post'
-            action='/signin/lecturer'
             onSubmit={handleSubmit}
           >
             {!isMember && (
@@ -271,49 +272,12 @@ export default function Lecturer() {
               </Button>
             </Flex>
 
-            <Text
-              textAlign={"center"}
-              mb={"20px"}
-              color={"gray"}
-              fontSize={"20px"}
-            >
-              or
-            </Text>
+            <Text> {isMember ? "Log in" : "Get started"}</Text>
+
+            
           </Form>
-          <Flex justify={"center"} mb={"2rem"}>
-            <Link
-              textAlign={"center"}
-              // mb={"20px"}
-              color={"gray"}
-              fontSize={"20px"}
-              onClick={() => setIsMember(!isMember)}
-            >
-              {isMember ? "Get started" : "Log in"}
-            </Link>
-            {/* <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  // console.log(credentialResponse)
-                }}
-                onError={() => {
-                  return
-                  // console.log("Login Failed")
-                }}
-              /> */}
-          </Flex>
-          <Box
-            pos={"absolute"}
-            w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
-            left={"30%"}
-            bottom={"15%"}
-          >
-            <img
-              src={arrow}
-              style={{
-                filter:
-                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-              }}
-            />
-          </Box>
+          
+        
         </Flex>
       </Flex>
 

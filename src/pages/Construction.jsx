@@ -29,7 +29,7 @@ export default function Construction() {
       <Container py={"60px"}>
         <Heading>Page in development</Heading>
         <HStack py={"20px"}>
-          <Text px={"10px"} fontWeight={"semibold"}>
+          <Text px={"10px"} fontWeight={"semibold"} color={'red'}>
             Check back
           </Text>
           <Button sx={buttonReturn}>
@@ -38,7 +38,7 @@ export default function Construction() {
         </HStack>
       </Container>
       <Box
-        width={{ md: "700px", lg: "900px" }}
+        width={{ md: "50%", lg: "50%" }}
         ml={{ md: "70px", lg: "400px" }}
         my={{ base: "0px", lg: "-70px" }}>
         <img src={image} alt="image" />
