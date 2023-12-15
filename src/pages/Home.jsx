@@ -11,7 +11,7 @@ import {
   GridItem,
   Show,
   Hide,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 import {
   Drawer,
   DrawerBody,
@@ -20,39 +20,39 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-} from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
-import topImage from "../images/image_1.png";
-import easy_attendance from "../images/easy_attendance.png";
-import real_time from "../images/real_time.png";
-import confirm from "../images/online.png";
-import easyuse from "../images/easy-to-use.png";
-import data_analysis from "../images/data_analysis.png";
-import check from "../images/check.png";
-import line from "../images/line2.svg";
-import underline5 from "../images/underline5.svg";
-import arrow4 from "../images/arrow4.svg";
-import punct from "../images/punctuation1.svg";
-import doodle from "../images/doodle2.svg";
-import arrow5 from "../images/arrow5.svg";
-import cornerarrow from "../images/cornerarrow.svg";
-import cookies from "../images/cookies.png";
-import grading from "../images/grading.png";
-import doodle4 from "../images/doodle4.svg";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import "@fontsource/lato/400.css";
-import "@fontsource/prompt/900.css";
-import "@fontsource/raleway/500.css";
-import "@fontsource/roboto/300.css";
+} from "@chakra-ui/react"
+import { useDisclosure } from "@chakra-ui/react"
+import topImage from "../images/image_1.png"
+import easy_attendance from "../images/easy_attendance.png"
+import real_time from "../images/real_time.png"
+import confirm from "../images/online.png"
+import easyuse from "../images/easy-to-use.png"
+import data_analysis from "../images/data_analysis.png"
+import check from "../images/check.png"
+import line from "../images/line2.svg"
+import underline5 from "../images/underline5.svg"
+import arrow4 from "../images/arrow4.svg"
+import punct from "../images/punctuation1.svg"
+import doodle from "../images/doodle2.svg"
+import arrow5 from "../images/arrow5.svg"
+import cornerarrow from "../images/cornerarrow.svg"
+import cookies from "../images/cookies.png"
+import grading from "../images/grading.png"
+import doodle4 from "../images/doodle4.svg"
+import { motion } from "framer-motion"
+import { useEffect } from "react"
+import { Link, NavLink, Outlet } from "react-router-dom"
+import "@fontsource/lato/400.css"
+import "@fontsource/prompt/900.css"
+import "@fontsource/raleway/500.css"
+import "@fontsource/roboto/300.css"
 // import Navbar from "../component/Navbar";
-import Footer from "../component/Footer";
+import Footer from "../component/Footer"
 
 export const Home = () => {
   useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
+    document.body.classList.add("bg-color")
+  }, [])
 
   const firstRegister = {
     bgColor: "#213655",
@@ -61,8 +61,7 @@ export const Home = () => {
       bgColor: "#f2575d",
     },
     borderRadius: "0",
-    width: "100%",
-  };
+  }
 
   const secondRegister = {
     color: "#213655",
@@ -74,8 +73,7 @@ export const Home = () => {
       color: "white",
       border: "3px solid #f2575d ",
     },
-    width: "100%",
-  };
+  }
   const cookie = {
     color: "#213655",
     border: "1px solid grey ",
@@ -86,15 +84,17 @@ export const Home = () => {
       color: "white",
       border: "0px solid #f2575d ",
     },
-  };
+  }
   const fadeIn = {
     initial: {
       opacity: 0,
+      y: "300",
     },
     animate: {
       opacity: 1,
+      y: 0,
     },
-  };
+  }
   const fadeInto = {
     initial: {
       opacity: 0,
@@ -102,32 +102,33 @@ export const Home = () => {
     animate: {
       opacity: 1,
     },
-  };
+  }
   const SlideIn = {
     initial: {
       opacity: 0,
-      x: 100,
+      x: 300,
     },
     animate: {
       opacity: 1,
       x: 0,
     },
-  };
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  }
+  const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
     const timer = setTimeout(() => {
-      onOpen();
-    }, 5000);
+      onOpen()
+    }, 5000)
     const cleanup = () => {
-      clearTimeout(timer);
-      onClose();
-    };
-  }, [onOpen, onClose]);
+      clearTimeout(timer)
+      onClose()
+    }
+  }, [onOpen, onClose])
 
   return (
     <div>
+      {/* <Navbar /> */}
       {isOpen && (
-        <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
+        <Drawer isOpen={isOpen} placement='bottom' onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
@@ -137,7 +138,7 @@ export const Home = () => {
                   This website uses cookies
                 </Heading>
                 <Box w={"30px"}>
-                  <img src={cookies} alt="cookie" />
+                  <img src={cookies} alt='cookie' />
                 </Box>
               </Flex>
             </DrawerHeader>
@@ -145,7 +146,7 @@ export const Home = () => {
             <DrawerBody>
               <Container>
                 <Text>
-                  This website uses cookies and other tracking technologies to
+                  This website uses cookies and other tracking technologies
                   improve your experience on our website. By using our website,
                   you consent to all cookies in accordance with our Cookie
                   Policy
@@ -171,6 +172,20 @@ export const Home = () => {
         my={"40px"}
       >
         <Container
+          as={motion.div}
+          variants={fadeIn}
+          initial={"initial"}
+          whileInView={"animate"}
+          transition={{
+            delay: 0.5,
+            ease: "ease-in",
+            type: "spring",
+            stiffness: 120,
+            duration: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
           my={{ base: "150px", md: "150px", lg: "140px", xl: "175px" }}
           px={{ base: "20px", lg: "30px", xl: "30px" }}
         >
@@ -192,14 +207,14 @@ export const Home = () => {
             gap={5}
             flexDir={{ base: "column", md: "column", lg: "row", xl: "row" }}
           >
-            <NavLink to={"signin/register-institution"}>
-              <Button sx={firstRegister}>Register your Institution</Button>
-            </NavLink>
-
-            <NavLink to={"signin"}>
-              {" "}
-              <Button sx={secondRegister}>Signup as Tutor/Student</Button>
-            </NavLink>
+            <Button sx={firstRegister}>
+              <NavLink to={"register-institution"}>
+                Register your Institution
+              </NavLink>
+            </Button>
+            <Button sx={secondRegister}>
+              <NavLink to={"signin"}>Signup as Tutor/Student</NavLink>
+            </Button>
           </Flex>
         </Container>
         <Box
@@ -207,6 +222,7 @@ export const Home = () => {
           variants={SlideIn}
           initial={"initial"}
           whileInView={"animate"}
+          transition={{ delay: 0.8, ease: "ease-in", duration: 1 }}
           viewport={{
             once: true,
           }}
@@ -214,11 +230,10 @@ export const Home = () => {
           ml={"auto"}
           mr={"auto"}
           mt={{ base: "-100px", lg: "40px", xl: "50px" }}
-          transition={'all .6s'}
         >
           <img
             src={topImage}
-            alt="imageOne"
+            alt='imageOne'
             style={{
               height: "auto",
               width: "100%",
@@ -228,13 +243,13 @@ export const Home = () => {
           />
         </Box>
       </SimpleGrid>
-      <Show above="lg">
+      <Show above='lg'>
         <Box
           as={motion.div}
           variants={fadeIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={'all .6s'}
+          transition={{ delay: 1, ease: "ease-in", type: "tween", duration: 1 }}
           viewport={{
             once: true,
           }}
@@ -245,7 +260,7 @@ export const Home = () => {
         >
           <img
             src={doodle4}
-            alt="doodle"
+            alt='doodle'
             style={{
               filter:
                 "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -255,17 +270,17 @@ export const Home = () => {
       </Show>
 
       <Box>
-        <img src={line} alt="line" width={"100%"} />
+        <img src={line} alt='line' width={"100%"} />
       </Box>
 
-      <Box as="section" backgroundColor={"#fff"}>
-        <Container as="section" backgroundColor={"#fff"} pt={"100px"}>
+      <Box as='section' backgroundColor={"#fff"}>
+        <Container as='section' backgroundColor={"#fff"} pt={"100px"}>
           <Heading
             as={motion.div}
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={'all .6s'}
+            transition={{ delay: 0.8, ease: "ease-in" }}
             viewport={{
               once: true,
             }}
@@ -280,7 +295,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={'all .6s'}
+            transition={{ delay: 0.9, ease: "ease-in" }}
             viewport={{
               once: true,
             }}
@@ -290,7 +305,7 @@ export const Home = () => {
           >
             <img
               src={underline5}
-              alt="loop"
+              alt='loop'
               style={{
                 filter:
                   "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -302,7 +317,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-            transition={'all .6s'}
+            transition={{ delay: 0.8, ease: "ease-in" }}
             viewport={{
               once: true,
             }}
@@ -318,7 +333,7 @@ export const Home = () => {
             variants={fadeIn}
             initial={"initial"}
             whileInView={"animate"}
-             transition={'all .6s'}
+            transition={{ delay: 0.9, ease: "ease-in" }}
             viewport={{
               once: true,
             }}
@@ -328,7 +343,7 @@ export const Home = () => {
           >
             <img
               src={arrow4}
-              alt="loop"
+              alt='loop'
               style={{
                 filter:
                   "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -336,7 +351,7 @@ export const Home = () => {
             />
           </Box>
         </Container>
-        <HStack as="flex" justifyContent={"center"}>
+        <HStack as='flex' justifyContent={"center"}>
           <Heading
             textAlign={"center"}
             pb={"auto"}
@@ -354,7 +369,7 @@ export const Home = () => {
                 filter:
                   "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
               }}
-              alt="loop"
+              alt='loop'
             />
           </Box>
         </HStack>
@@ -372,7 +387,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 0.5, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -380,14 +395,14 @@ export const Home = () => {
               pb={"30px"}
               mr={"40px"}
             >
-              <img src={easy_attendance} alt="real-time" />
+              <img src={easy_attendance} alt='real-time' />
             </Box>
             <Container
               as={motion.div}
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={'all .6s'}
+              transition={{ delay: 0.8, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -420,7 +435,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -447,14 +462,14 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
               w={{ base: "300px", md: "300px", lg: "400px", xl: "400px" }}
               pb={"30px"}
             >
-              <img src={real_time} alt="real-time" />
+              <img src={real_time} alt='real-time' />
             </Box>
           </Flex>
 
@@ -470,7 +485,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -478,14 +493,14 @@ export const Home = () => {
               pb={"30px"}
               mr={"50px"}
             >
-              <img src={easyuse} alt="real-time" />
+              <img src={easyuse} alt='real-time' />
             </Box>
             <Container
               as={motion.div}
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -517,7 +532,7 @@ export const Home = () => {
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -542,14 +557,14 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
               w={{ base: "300px", md: "300px", lg: "400px", xl: "400px" }}
               pb={"30px"}
             >
-              <img src={data_analysis} alt="real-time" />
+              <img src={data_analysis} alt='real-time' />
             </Box>
           </Flex>
 
@@ -565,7 +580,7 @@ export const Home = () => {
               variants={SlideIn}
               initial={"initial"}
               whileInView={"animate"}
-              transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -574,14 +589,14 @@ export const Home = () => {
               mr={"30px"}
               ml={{ base: "0px", xl: "150px" }}
             >
-              <img src={grading} alt="real-time" />
+              <img src={grading} alt='real-time' />
             </Box>
             <Container
               as={motion.div}
               variants={fadeIn}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 0.8, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -607,13 +622,13 @@ export const Home = () => {
           pb={{ base: "0px", md: "30px", lg: "40px", xl: "40px" }}
         >
           <NavLink to={"/about"}>
-            <Show above="lg">
+            <Show above='lg'>
               <Box
                 as={motion.div}
                 variants={fadeInto}
                 initial={"initial"}
                 whileInView={"animate"}
-                 transition={'all .6s'}
+                transition={{ delay: 1, ease: "ease-in" }}
                 viewport={{
                   once: true,
                 }}
@@ -623,7 +638,7 @@ export const Home = () => {
               >
                 <img
                   src={doodle}
-                  alt="doodle"
+                  alt='doodle'
                   style={{
                     filter:
                       "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -637,7 +652,7 @@ export const Home = () => {
               variants={fadeInto}
               initial={"initial"}
               whileInView={"animate"}
-               transition={'all .6s'}
+              transition={{ delay: 1, ease: "ease-in" }}
               viewport={{
                 once: true,
               }}
@@ -647,7 +662,7 @@ export const Home = () => {
               my={"30px"}
             >
               LEARN MORE
-              <Show below="lg">
+              <Show below='lg'>
                 <Box w={"30px"} ml={"20px"}>
                   <img
                     src={arrow5}
@@ -655,7 +670,7 @@ export const Home = () => {
                       filter:
                         "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
                     }}
-                    alt="arrow"
+                    alt='arrow'
                   />
                 </Box>
               </Show>
@@ -675,7 +690,7 @@ export const Home = () => {
           variants={fadeIn}
           initial={"initial"}
           whileInView={"animate"}
-          transition={'all .6s'}
+          transition={{ delay: 1, ease: "ease-in" }}
           viewport={{
             once: true,
           }}
@@ -700,11 +715,11 @@ export const Home = () => {
           </Text>
           <HStack as={"flex"} ml={"30px"} align={"center"} mb={"40px"}>
             <Box w={"50px"} mr={"10px"} mb={"10px"}>
-              <img src={cornerarrow} alt="corner-arrow" />
+              <img src={cornerarrow} alt='corner-arrow' />
             </Box>
-            <Link to={"/construction"}>
+            <Link to={"/price"}>
               {" "}
-              <Text fontWeight={900} fontSize={'1.2rem'} color={"#f2575d"}>Request Demo</Text>
+              <Text color={"#f2575d"}>Get Started</Text>
             </Link>
           </HStack>
         </Container>
@@ -713,7 +728,7 @@ export const Home = () => {
           variants={SlideIn}
           initial={"initial"}
           whileInView={"animate"}
-           transition={'all .6s'}
+          transition={{ delay: 1, ease: "ease-in" }}
           viewport={{
             once: true,
           }}
@@ -721,10 +736,12 @@ export const Home = () => {
           mr={"auto"}
           ml={"auto"}
         >
-          <img src={check} alt="join" />
+          <img src={check} alt='join' />
         </Box>
       </SimpleGrid>
       <Footer />
+
+      {/* <Outlet /> */}
     </div>
-  );
-};
+  )
+}
