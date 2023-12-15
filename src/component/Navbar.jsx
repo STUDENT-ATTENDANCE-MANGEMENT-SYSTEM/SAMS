@@ -92,7 +92,14 @@ export default function Navbar() {
               ABOUT
             </Button>
           </NavLink>
-          <NavLink to={"/contact"}>
+          <NavLink
+            to={"/contact"}
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "Red" : "black",
+              };      
+            }}
+          >
             <Button
               as={"a"}
               variant={"ghost"}
