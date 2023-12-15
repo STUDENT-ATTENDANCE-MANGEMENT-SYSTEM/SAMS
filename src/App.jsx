@@ -69,7 +69,7 @@ const router = createBrowserRouter(
       <Route
         path="lecturer"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute role='lecturer'>
             <LecturerLayout />
           </ProtectedRoute>
         }
@@ -77,7 +77,18 @@ const router = createBrowserRouter(
         <Route index element={<LecturerMain />} />
         <Route path="home" element={<LecturerHome />} />
       </Route>
+ imagesforform
       <Route path="student" element={<StudentLayout />}>
+
+      <Route
+        path='student'
+        element={
+          <ProtectedRoute role='student'>
+            <StudentLayout />
+          </ProtectedRoute>
+        }
+      >
+ main
         <Route index element={<StudentMain />} />
       </Route>
       <Route path="institution" element={<InstitutionLayout />}>

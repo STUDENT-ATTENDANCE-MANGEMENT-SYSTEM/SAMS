@@ -378,8 +378,13 @@ export default function LecturerLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
+imagesforform
                     name="Segun Showunmi"
                     src="https://bit.ly/broken-link"
+
+                    name={`${lecturer?.firstName} ${lecturer?.lastName}`}
+                    src='https://bit.ly/broken-link'
+ main
                   />
                 </WrapItem>
               </Wrap>

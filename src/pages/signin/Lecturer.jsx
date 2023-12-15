@@ -145,6 +145,10 @@ export default function Lecturer() {
           <Form
             w={"90%"}
             method='post'
+ imagesforform
+
+            // action='/signin/lecturer'
+ main
             onSubmit={handleSubmit}
           >
             {!isMember && (
@@ -262,12 +266,7 @@ export default function Lecturer() {
               )}
             </FormControl>
             <Flex justify={"center"} mb={"2rem"}>
-              <Button
-                type='submit'
-                colorScheme='red'
-                w={"30%"}
-                // onClick={handleSubmit}
-              >
+              <Button type='submit' colorScheme='red' w={"30%"}>
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
@@ -276,8 +275,35 @@ export default function Lecturer() {
 
             
           </Form>
+ imagesforform
           
         
+
+          <Flex justify={"center"} mb={"2rem"}>
+            <Link
+              textAlign={"center"}
+              color={"gray"}
+              fontSize={"20px"}
+              onClick={() => setIsMember(!isMember)}
+            >
+              {isMember ? "Get started" : "Log in"}
+            </Link>
+          </Flex>
+          <Box
+            pos={"absolute"}
+            w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
+            left={"30%"}
+            bottom={"15%"}
+          >
+            <img
+              src={arrow}
+              style={{
+                filter:
+                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
+              }}
+            />
+          </Box>
+ main
         </Flex>
       </Flex>
 
@@ -285,19 +311,3 @@ export default function Lecturer() {
     </div>
   )
 }
-
-// export const lecturerRegister = async ({ request }) => {
-//   console.log(request)
-//   const data = await request.formData()
-
-//   const submission = {
-//     lecturerName: data.get("name"),
-//     lecturerEmail: data.get("email"),
-//     lecturerPassword: data.get("password"),
-//   }
-
-//   localStorage.setItem("Lecturer", JSON.stringify(submission))
-
-//   // console.log(submission)
-//   return redirect("/lecturer")
-// }
