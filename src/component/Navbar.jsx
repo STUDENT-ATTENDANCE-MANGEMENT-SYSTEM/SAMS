@@ -96,7 +96,7 @@ export default function Navbar() {
             style={({ isActive }) => {
               return {
                 color: isActive ? "Red" : "black",
-              };
+              };      
             }}
           >
             <Button
