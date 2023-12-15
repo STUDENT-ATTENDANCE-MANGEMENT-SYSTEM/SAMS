@@ -13,6 +13,16 @@ import {
   InputGroup,
   InputLeftElement,
   Text,
+ imagesforform
+  Spacer,
+} from "@chakra-ui/react";
+import image from "../../images/25.png";
+import { FaUser } from "react-icons/fa";
+import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import arrow from "../../images/arrow6.svg";
+import punct from "../../images/punct.svg";
+import logo from "../../images/logo.png";
+
   Link,
 } from "@chakra-ui/react"
 import image from "../../images/25.png"
@@ -20,6 +30,7 @@ import { FaUser } from "react-icons/fa"
 import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import arrow from "../../images/arrow6.svg"
 import punct from "../../images/punct.svg"
+ main
 
 import { GoogleLogin } from "@react-oauth/google"
 import { GoogleOAuthProvider } from "@react-oauth/google"
@@ -101,6 +112,36 @@ export default function Student() {
   }
   return (
     <div>
+ imagesforform
+      <Flex flexDir={'row'} m={'20px'}>
+        <Box ml={'30px'}>
+          <img src={logo} alt="" />
+        </Box>
+        <Spacer />
+        <Button colorScheme={"red"} marginRight={'40px'}>Sign In</Button>
+      </Flex>
+
+      <GoogleOAuthProvider clientId="950695587102-tshfvmoi0kj2fasfmiiem3ed022eaf19.apps.googleusercontent.com">
+        <Flex
+          flexDir={"column"}
+          mt={{ base: "60px", md: "150px", lg: "100px", xl: "80px" }}
+          bgColor={"white"}
+          w={{ base: "90%", xl: "50%" }}
+          mr={"auto"}
+          ml={"auto"}
+          borderRadius={"10px"}
+        >
+          <Flex flexDirection={"row"} justify={"center"} align={"center"}>
+            <Box w={"4%"} mt={"20px"} mr={"10px"}>
+              <img
+                src={punct}
+                style={{
+                  filter:
+                    "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
+                }}
+              />
+            </Box>
+
       <Flex
         flexDir={"column"}
         mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
@@ -125,11 +166,17 @@ export default function Student() {
               }}
             />
           </Box>
+ main
 
           <Heading fontFamily={"mono"} mt={"30px"} color={"#213655"}>
             {isMember ? "Log in" : "Sign Up as a Lecturer"}{" "}
           </Heading>
         </Flex>
+
+ imagesforform
+          <Container mt={"30px"} mr={"auto"} ml={"auto"}>
+            <Form method="post" action="/signin/student">
+              <FormControl mb={"30px"}>
 
         <Container mt={"40px"} mr={"auto"} ml={"auto"}>
           <Form
@@ -142,6 +189,7 @@ export default function Student() {
                 mb={"30px"}
                 isInvalid={isSubmitted && errors.firstName}
               >
+ main
                 <InputGroup alignItems={"center"}>
                   <InputLeftElement pointerEvents={"none"}>
                     <Icon as={FaUser} color='gray' />
@@ -185,6 +233,36 @@ export default function Student() {
                 )}
               </FormControl>
             )}
+
+ imagesforform
+              <FormControl mb={"30px"}>
+                <InputGroup>
+                  <InputLeftElement>
+                    <Box onClick={handleShow} variant={"ghost"}>
+                      {show ? (
+                        <ViewIcon color={"gray"} />
+                      ) : (
+                        <ViewOffIcon color={"gray"} />
+                      )}
+                    </Box>
+                  </InputLeftElement>
+                  <Input
+                    type={show ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    w={"100%"}
+                    border={"1px solid gray"}
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <Flex justify={"center"} mb={"10px"}>
+                <Button type="submit" colorScheme="red" w={"50%"}>
+                  Get Started
+                </Button>
+              </Flex>
+            </Form>
+
 
             <FormControl mb={"30px"} isInvalid={isSubmitted && errors.email}>
               <InputGroup>
@@ -232,11 +310,18 @@ export default function Student() {
                 <FormErrorMessage>{errors.password}</FormErrorMessage>
               )}
             </FormControl>
+ main
             <Flex justify={"center"} mb={"30px"}>
               <Button type='submit' colorScheme='red' w={"30%"}>
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
+ imagesforform
+          </Container>
+        </Flex>
+        
+      </GoogleOAuthProvider>
+
 
             <Text
               textAlign={"center"}
@@ -273,6 +358,7 @@ export default function Student() {
           </Box>
         </Container>
       </Flex>
+ main
     </div>
   )
 }

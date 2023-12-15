@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   HStack,
   Heading,
   Image,
@@ -26,10 +27,10 @@ export default function Construction() {
   };
   return (
     <div>
-      <Container py={"60px"}>
+      <Container mt={"3em"}>
         <Heading>Page in development</Heading>
-        <HStack py={"20px"}>
-          <Text px={"10px"} fontWeight={"semibold"}>
+        <HStack pt={"1.4em"}>
+          <Text px={"10px"} fontWeight={"semibold"} color={"red"}>
             Check back
           </Text>
           <Button sx={buttonReturn}>
@@ -37,12 +38,11 @@ export default function Construction() {
           </Button>
         </HStack>
       </Container>
-      <Box
-        width={{ md: "700px", lg: "900px" }}
-        ml={{ md: "70px", lg: "400px" }}
-        my={{ base: "0px", lg: "-70px" }}>
-        <img src={image} alt="image" />
-      </Box>
+      <Flex justify={"center"}>
+        <Box width={{ md: "100%", lg: "50%" }}>
+          <img src={image} alt="image" />
+        </Box>
+      </Flex>
     </div>
   );
 }

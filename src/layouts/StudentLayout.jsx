@@ -56,21 +56,40 @@ export default function StudentLayout() {
             minHeight={"100vh"}
             borderRight={"2px solid black"}
           >
+ imagesforform
+            <Flex mt={"20px"} ml={"10px"}>
+
             <Flex mt={"60px"} ml={"10px"}>
+ main
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
                 Hello! {student?.firstName}
               </Text>
             </Flex>
             <Flex justify={"center"}>
               <List spacing={10} mt={"70px"} cursor={"pointer"}>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                {" "}
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdHome} boxSize={5} />
                   Home
                 </ListItem>
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
+ imagesforform
+                      <Box
+                        as="span"
+                        flex={"1"}
+                        textAlign={"left"}
+                        _hover={{ color: "red" }}
+                      >
+
                       <Box as='span' flex={"1"} textAlign={"left"}>
+ main
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -84,12 +103,21 @@ export default function StudentLayout() {
                     <AccordionPanel>GNS 210</AccordionPanel>
                   </AccordionItem>
                 </Accordion>
-
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdSettings} boxSize={5} />
                   Setting
                 </ListItem>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdContactSupport} boxSize={5} />
                   Support and Help
                 </ListItem>
@@ -122,7 +150,12 @@ export default function StudentLayout() {
             </Flex>
             <Flex justify={"center"}>
               <List spacing={10} mt={"70px"} cursor={"pointer"}>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdHome} boxSize={5} />
                   Home
                 </ListItem>
@@ -144,11 +177,21 @@ export default function StudentLayout() {
                   </AccordionItem>
                 </Accordion>
 
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdSettings} boxSize={5} />
                   Setting
                 </ListItem>
-                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
+                <ListItem
+                  fontWeight={"bold"}
+                  cursor={"pointer"}
+                  pl={"20px"}
+                  _hover={{ color: "red" }}
+                >
                   <ListIcon as={MdContactSupport} boxSize={5} />
                   Support and Help
                 </ListItem>
@@ -183,7 +226,11 @@ export default function StudentLayout() {
             </Box>
 
             <Box ml={{ base: "10px", lg: "20px", xl: "25px" }}>
+ imagesforform
+              <img src={logo} alt="logo" />
+
               <img src={logo} alt='logo' />
+ main
             </Box>
             <Spacer />
             <Flex
