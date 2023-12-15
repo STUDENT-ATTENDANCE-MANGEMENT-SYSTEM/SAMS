@@ -35,50 +35,50 @@ import {
   FormLabel,
   Input,
   useSafeLayoutEffect,
-} from "@chakra-ui/react";
-import { Link, Outlet, NavLink } from "react-router-dom";
+} from "@chakra-ui/react"
+import { Link, Outlet } from "react-router-dom"
 import {
   MdAnalytics,
   MdBook,
   MdContactSupport,
   MdHome,
   MdSettings,
-} from "react-icons/md";
-import { appContext } from "../App";
-import Hamburger from "hamburger-react";
-import { useEffect, useRef, useState, useContext } from "react";
-import logo from "../images/logo.png";
-import { AddIcon, SearchIcon } from "@chakra-ui/icons";
+} from "react-icons/md"
+import { appContext } from "../App"
+import Hamburger from "hamburger-react"
+import { useEffect, useRef, useState, useContext } from "react"
+import logo from "../images/logo.png"
+import { AddIcon, SearchIcon } from "@chakra-ui/icons"
 export default function LecturerLayout() {
   useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
-  const [display, setDisplay] = useState("none");
+    document.body.classList.add("bg-color")
+  }, [])
+  const [display, setDisplay] = useState("none")
   const {
     isOpen: isCreateOpen,
     onOpen: onCreateOpen,
     onClose: onCreateClose,
-  } = useDisclosure();
+  } = useDisclosure()
   const {
     isOpen: isJoinOpen,
     onOpen: onJoinOpen,
     onClose: onJoinClose,
-  } = useDisclosure();
-  const { lecturer } = useContext(appContext);
-  const initialRef = useRef(null);
-  const [code, setCode] = useState(" ");
-  const [courseTitle, setCourseTitle] = useState(" ");
+  } = useDisclosure()
+  const { lecturer } = useContext(appContext)
+  const initialRef = useRef(null)
+  const [code, setCode] = useState(" ")
+  const [courseTitle, setCourseTitle] = useState(" ")
   const [data, setData] = useState([
     { courseCode: "TME 211", title: "INTRODUCTION TO ENGINEERING DRAWING" },
     { courseCode: "TME 231", title: "INTRODUCTION TO ENGINEERING PRINCIPLES" },
     { courseCode: "MAT 224", title: "INTRODUCTION TO ENGINEERING MATHEMATICS" },
     { courseCode: "GNS 210", title: "INTRODUCTION TO ENTREPRENEURSHIP" },
-  ]);
+  ])
   const handleSubmit = () => {
-    setData(...data, { courseCode: code, title: courseTitle });
-    setCode(" ");
-    setCourseTitle(" ");
-  };
+    setData(...data, { courseCode: code, title: courseTitle })
+    setCode(" ")
+    setCourseTitle(" ")
+  }
   return (
     <div>
       <Modal isOpen={isJoinOpen} onClose={onJoinClose}>
@@ -91,20 +91,20 @@ export default function LecturerLayout() {
               Ask your fellow lecturer for the course attendance tab, then enter
               it below:
             </Text>
-            <Input mb={"10px"} placeholder="attendance code" />
+            <Input mb={"10px"} placeholder='attendance code' />
             <Text>
               If you have an issue joining the attendance, go to the{" "}
-              <Link to="/about" style={{ color: "blue" }}>
+              <Link to='/about' style={{ color: "blue" }}>
                 Help guide
               </Link>
             </Text>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onJoinClose}>
+            <Button colorScheme='blue' mr={3} onClick={onJoinClose}>
               Close
             </Button>
-            <Button variant="ghost" onClick={onJoinClose}>
+            <Button variant='ghost' onClick={onJoinClose}>
               Join
             </Button>
           </ModalFooter>
@@ -124,31 +124,31 @@ export default function LecturerLayout() {
               <FormLabel>Course code</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder="BME 201"
+                placeholder='BME 201'
                 onChange={(e) => {
-                  setCode(e.target.value);
+                  setCode(e.target.value)
                 }}
               />
             </FormControl>
             <FormControl mt={4}>
               <FormLabel>Course title</FormLabel>
               <Input
-                placeholder="General anatomy"
+                placeholder='General anatomy'
                 onChange={(e) => {
-                  setCourseTitle(e.target.value);
+                  setCourseTitle(e.target.value)
                 }}
               />
             </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button
-              colorScheme="blue"
+              colorScheme='blue'
               mr={3}
               onClick={() => {
-                handleSubmit();
+                handleSubmit()
               }}
             >
-              Create
+              Submit
             </Button>
             <Button onClick={onCreateClose}>Cancel</Button>
           </ModalFooter>
@@ -162,35 +162,23 @@ export default function LecturerLayout() {
             minHeight={"100vh"}
             borderRight={"2px solid black"}
           >
-            <Flex mt={"20px"} ml={"10px"}>
+            <Flex mt={"40px"} ml={"10px"}>
               <Text fontWeight={"extrabold"} fontSize={"2xl"}>
                 Hello! {lecturer?.firstName}
               </Text>
             </Flex>
             <Flex justify={"center"}>
               <List spacing={10} mt={"70px"} cursor={"pointer"}>
-                <NavLink
-                  to={"/lecturer/home"}
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive ? "Red" : "black",
-                    };
-                  }}
-                >
-                  <ListItem
-                    fontWeight={"bold"}
-                    cursor={"pointer"}
-                    pl={"20px"}
-                    _hover={{ color: "red" }}
-                  >
+                <Link to={"home"}>
+                  <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
                     <ListIcon as={MdHome} boxSize={5} />
                     Home
                   </ListItem>
-                </NavLink>
+                </Link>
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -207,7 +195,7 @@ export default function LecturerLayout() {
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdAnalytics} boxSize={5} />
                           Insight
@@ -222,26 +210,16 @@ export default function LecturerLayout() {
                   </AccordionItem>
                 </Accordion>
 
-                <ListItem
-                  fontWeight={"bold"}
-                  cursor={"pointer"}
-                  pl={"20px"}
-                  _hover={{ color: "red" }}
-                >
+                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
                   <ListIcon as={MdSettings} boxSize={5} />
                   Setting
                 </ListItem>
-                <ListItem
-                  fontWeight={"bold"}
-                  cursor={"pointer"}
-                  pl={"20px"}
-                  _hover={{ color: "red" }}
-                >
+                <ListItem fontWeight={"bold"} cursor={"pointer"} pl={"20px"}>
                   <ListIcon as={MdContactSupport} boxSize={5} />
                   Support and Help
                 </ListItem>
                 <ListItem>
-                  <Button colorScheme="red" p={"10px"} w={"75%"}>
+                  <Button colorScheme='red' p={"10px"} w={"75%"}>
                     Logout
                   </Button>
                 </ListItem>
@@ -278,7 +256,7 @@ export default function LecturerLayout() {
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdBook} boxSize={5} />
                           Courses
@@ -295,7 +273,7 @@ export default function LecturerLayout() {
                 <Accordion allowToggle>
                   <AccordionItem borderColor={"transparent"}>
                     <AccordionButton _expanded={{ borderColor: "white" }}>
-                      <Box as="span" flex={"1"} textAlign={"left"}>
+                      <Box as='span' flex={"1"} textAlign={"left"}>
                         <ListItem fontWeight={"bold"} cursor={"pointer"}>
                           <ListIcon as={MdAnalytics} boxSize={5} />
                           Insight
@@ -319,7 +297,7 @@ export default function LecturerLayout() {
                   Support and Help
                 </ListItem>
                 <ListItem>
-                  <Button colorScheme="red" p={"10px"} w={"75%"}>
+                  <Button colorScheme='red' p={"10px"} w={"75%"}>
                     Logout
                   </Button>
                 </ListItem>
@@ -336,19 +314,19 @@ export default function LecturerLayout() {
             >
               <Hamburger
                 rounded
-                direction="right"
+                direction='right'
                 duration={0.5}
                 onToggle={(toggled) => {
                   if (toggled) {
-                    setDisplay("grid");
+                    setDisplay("grid")
                   } else {
-                    setDisplay("none");
+                    setDisplay("none")
                   }
                 }}
               />
             </Box>
             <Box ml={{ base: "10px", lg: "25px", xl: "25px" }}>
-              <img src={logo} alt="logo" />
+              <img src={logo} alt='logo' />
             </Box>
             <Spacer />
             <Flex
@@ -358,14 +336,14 @@ export default function LecturerLayout() {
             >
               <IconButton
                 variant={"ghost"}
-                colorScheme="white"
+                colorScheme='white'
                 icon={<SearchIcon />}
               />
               <Menu>
                 <MenuButton>
                   <IconButton
                     variant={"ghost"}
-                    colorScheme="white"
+                    colorScheme='white'
                     icon={<AddIcon />}
                   />
                 </MenuButton>
@@ -378,8 +356,8 @@ export default function LecturerLayout() {
               <Wrap>
                 <WrapItem>
                   <Avatar
-                    name="Segun Showunmi"
-                    src="https://bit.ly/broken-link"
+                    name={`${lecturer?.firstName} ${lecturer?.lastName}`}
+                    src='https://bit.ly/broken-link'
                   />
                 </WrapItem>
               </Wrap>
@@ -389,5 +367,5 @@ export default function LecturerLayout() {
         </GridItem>
       </Grid>
     </div>
-  );
+  )
 }
