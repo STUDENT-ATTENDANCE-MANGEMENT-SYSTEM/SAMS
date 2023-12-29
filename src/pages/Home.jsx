@@ -569,7 +569,7 @@ export const Home = () => {
                 >
                   <img src={cornerarrow} alt='corner-arrow' />
                 </Box>{" "}
-                Get Started
+                Request Demo
               </Text>
             </Link>
           </HStack>
