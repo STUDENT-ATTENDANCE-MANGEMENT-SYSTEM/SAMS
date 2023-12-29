@@ -20,9 +20,6 @@ import { FaUser } from "react-icons/fa"
 import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import arrow from "../../images/arrow6.svg"
 import punct from "../../images/punct.svg"
-
-import { GoogleLogin } from "@react-oauth/google"
-import { GoogleOAuthProvider } from "@react-oauth/google"
 import { useContext, useEffect, useState } from "react"
 import { Form, NavLink, Outlet, redirect, useNavigate } from "react-router-dom"
 import { appContext } from "../../App"
@@ -101,7 +98,7 @@ export default function Student() {
   }
   return (
     <div>
-      <Flex
+      <Container
         flexDir={"column"}
         mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
         bgColor={"white"}
@@ -114,9 +111,9 @@ export default function Student() {
           flexDirection={"row"}
           justify={"center"}
           align={"center"}
-          mb={"20px"}
+          my={"2em"}
         >
-          <Box w={"30px"} mt={"20px"} mr={"10px"}>
+          <Box w={"30px"}  mr={"10px"}>
             <img
               src={punct}
               style={{
@@ -126,20 +123,24 @@ export default function Student() {
             />
           </Box>
 
-          <Heading fontFamily={"mono"} mt={"30px"} color={"#213655"}>
-            {isMember ? "Log in" : "Sign Up as a Lecturer"}{" "}
+          <Heading fontFamily={"mono"} color={"#213655"}>
+            {isMember ? "Log in" : "Sign Up as a Student"}{" "}
           </Heading>
         </Flex>
 
-        <Container mt={"40px"} mr={"auto"} ml={"auto"}>
+        <Flex flexDir='column'>
           <Form
+          
             method='post'
             // action='/signin/student'
             onSubmit={handleSubmit}
           >
             {!isMember && (
               <FormControl
-                mb={"30px"}
+              mb={"2rem"}
+              w={"90%"}
+              ml={"auto"}
+              mr={"auto"}
                 isInvalid={isSubmitted && errors.firstName}
               >
                 <InputGroup alignItems={"center"}>
@@ -163,7 +164,10 @@ export default function Student() {
             )}
             {!isMember && (
               <FormControl
-                mb={"30px"}
+                mb={"2rem"}
+                w={"90%"}
+                ml={"auto"}
+                mr={"auto"}
                 isInvalid={isSubmitted && errors.lastName}
               >
                 <InputGroup alignItems={"center"}>
@@ -186,7 +190,10 @@ export default function Student() {
               </FormControl>
             )}
 
-            <FormControl mb={"30px"} isInvalid={isSubmitted && errors.email}>
+            <FormControl mb={"2rem"}
+                w={"90%"}
+                ml={"auto"}
+                mr={"auto"} isInvalid={isSubmitted && errors.email}>
               <InputGroup>
                 <InputLeftElement pointerEvents={"none"}>
                   <EmailIcon color='gray' />
@@ -207,7 +214,10 @@ export default function Student() {
               )}
             </FormControl>
 
-            <FormControl mb={"30px"} isInvalid={isSubmitted && errors.password}>
+            <FormControl mb={"2rem"}
+                w={"90%"}
+                ml={"auto"}
+                mr={"auto"} isInvalid={isSubmitted && errors.password}>
               <InputGroup>
                 <InputLeftElement>
                   <Box onClick={handleShow} variant={"ghost"}>
@@ -232,47 +242,37 @@ export default function Student() {
                 <FormErrorMessage>{errors.password}</FormErrorMessage>
               )}
             </FormControl>
-            <Flex justify={"center"} mb={"30px"}>
+            <Flex justify={"center"} mb={"2rem"}
+                w={"90%"}
+                ml={"auto"}
+                mr={"auto"}>
               <Button type='submit' colorScheme='red' w={"30%"}>
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
 
-            <Text
-              textAlign={"center"}
-              mb={"20px"}
-              color={"gray"}
-              fontSize={"20px"}
-            >
-              or
-            </Text>
+           
           </Form>
-          <Flex justify={"center"} mb={"2rem"}>
+          <Flex mb={"2em"} mx={'1.5em'}>
+            <Text pr={'.4em'}>
+            {isMember ? "Don't have an account?" : "Already have an account?"}
+            </Text>
             <Link
               textAlign={"center"}
-              color={"gray"}
-              fontSize={"20px"}
+              color={"red"}
+              fontSize={"1rem"}
               onClick={() => setIsMember(!isMember)}
             >
               {isMember ? "Get started" : "Log in"}
             </Link>
           </Flex>
-          <Flex justify={"center"} mb={"30px"}></Flex>
-          <Box
-            pos={"absolute"}
-            w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
-            bottom={"25%"}
-          >
-            <img
-              src={arrow}
-              style={{
-                filter:
-                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-              }}
-            />
-          </Box>
-        </Container>
-      </Flex>
+          <Flex justify={"center"} mb={"2rem"}
+                w={"90%"}
+                ml={"auto"}
+                mr={"auto"}></Flex>
+          
+        </Flex>
+      </Container>
     </div>
   )
 }

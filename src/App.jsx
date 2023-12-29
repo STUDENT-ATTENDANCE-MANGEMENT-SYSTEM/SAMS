@@ -16,7 +16,7 @@ import Login from "./pages/Login"
 import RootLayouts from "./layouts/RootLayouts"
 import NotFound from "./pages/NotFound"
 
-import Student, { studentRegister } from "./pages/signin/Student"
+import Student from "./pages/signin/Student"
 import Lecturer from "./pages/signin/Lecturer"
 import Register_Institution, {
   institutionRegister,
@@ -33,6 +33,7 @@ import InstitutionLayout from "./layouts/InstitutionLayout"
 import Construction from "./pages/Construction"
 import InstitutionHome from "./pages/institution/InstitutionHome"
 import ProtectedRoute from "./layouts/ProtectedRoute"
+import {QueryClientProvider, QueryClient} from 'react-query'
 
 export const appContext = createContext()
 

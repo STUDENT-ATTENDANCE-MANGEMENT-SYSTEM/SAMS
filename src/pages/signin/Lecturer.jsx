@@ -108,7 +108,7 @@ export default function Lecturer() {
 
   return (
     <div>
-      <Flex
+      <Container
         flexDir={"column"}
         mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
         bgColor={"white"}
@@ -121,9 +121,9 @@ export default function Lecturer() {
           flexDirection={"row"}
           justify={"center"}
           align={"center"}
-          mb={"1.5rem"}
+          my={"2em"}
         >
-          <Box w={"30px"} mt={"20px"} mr={"10px"}>
+          <Box w={"30px"} mr={"10px"}>
             <img
               src={punct}
               style={{
@@ -138,9 +138,9 @@ export default function Lecturer() {
           </Heading>
         </Flex>
 
-        <Flex direction='column'>
+        <Flex flexDir='column'>
           <Form
-            w={"90%"}
+            
             method='post'
             // action='/signin/lecturer'
             onSubmit={handleSubmit}
@@ -265,41 +265,25 @@ export default function Lecturer() {
               </Button>
             </Flex>
 
-            <Text
-              textAlign={"center"}
-              mb={"20px"}
-              color={"gray"}
-              fontSize={"20px"}
-            >
-              or
-            </Text>
+         
           </Form>
-          <Flex justify={"center"} mb={"2rem"}>
+          <Flex mb={"2em"} mx={'1.5em'}>
+            <Text pr={'.4em'}>
+            {isMember ? "Don't have an account?" : "Already have an account?"}
+            </Text>
             <Link
               textAlign={"center"}
-              color={"gray"}
-              fontSize={"20px"}
+              color={"red"}
+              fontSize={"1rem"}
               onClick={() => setIsMember(!isMember)}
             >
               {isMember ? "Get started" : "Log in"}
             </Link>
           </Flex>
-          <Box
-            pos={"absolute"}
-            w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
-            left={"30%"}
-            bottom={"15%"}
-          >
-            <img
-              src={arrow}
-              style={{
-                filter:
-                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-              }}
-            />
-          </Box>
+          <Flex justify={"center"} mb={"30px"}></Flex>
+          
         </Flex>
-      </Flex>
+      </Container>
 
       <Outlet />
     </div>
