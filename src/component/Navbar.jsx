@@ -201,7 +201,7 @@ export default function Navbar() {
             {/* <Button sx={componentButton} mb={"30px"} w={"20%"}>
               Sign Up
             </Button> */}
-            <Button variant={BUTTON_VARIANT} sx={secondRegister} w={"20%"}>
+            <Button variant={BUTTON_VARIANT} sx={secondRegister} w={"auto"}>
               Sign In
             </Button>
           </Flex>

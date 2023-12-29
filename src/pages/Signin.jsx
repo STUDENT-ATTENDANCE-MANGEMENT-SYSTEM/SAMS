@@ -16,8 +16,9 @@ export default function Signin() {
       <Heading
         textAlign={"center"}
         my={"2em"}
-        fontSize={"2.4rem"}
+        fontSize={{base:'1.6rem',md:'1.8rem',lg:'2.3rem',xl:"2.4rem"}}
         color={"#213655"}
+        px={'.7em'}
       >
         Register based on your role
       </Heading>
@@ -31,10 +32,10 @@ export default function Signin() {
 
         <NavLink to={"student"}>
         <Flex align={"center"} flexDir={"column"}>
-            <Box w={{ base: "75%", lg: "50%", xl: "50%" }} pb={"2em"}>
+            <Box w={{ base: "75%", lg: "50%", xl: "50%" }} pb={{base:'.7emem',md:'.9em',lg:'1em',xl:"1em"}}>
               <img src={student} alt="student" />
             </Box>
-            <Button variant={"ghost"} color={"#213655"} fontSize={"2rem"}>
+            <Button variant={"ghost"} color={"#213655"} fontSize={{base:'1rem',md:'1.2rem',lg:'2rem',xl:"2rem"}}>
               STUDENT
             </Button>
           </Flex>
@@ -42,10 +43,10 @@ export default function Signin() {
         <Spacer />
         <NavLink to={"lecturer"}>
         <Flex align={"center"} flexDir={"column"}>
-            <Box w={{ base: "75%", lg: "50%", xl: "50%" }} pb={"2em"}>
+            <Box w={{ base: "75%", lg: "50%", xl: "50%" }} pb={{base:'.7em',md:'.9em',lg:'1em',xl:"1em"}}>
               <img src={lecturer} alt="student" />
             </Box>
-            <Button variant={"ghost"} fontSize={"2rem"} color={"#213655"}>
+            <Button variant={"ghost"} fontSize={{base:'1rem',md:'1.2rem',lg:'2rem',xl:"2rem"}} color={"#213655"}>
               LECTURER
             </Button>
           </Flex>
