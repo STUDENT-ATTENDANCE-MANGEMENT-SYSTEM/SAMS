@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Icon,
-  IconButton,
-  Spacer,
-  useMediaQuery,
-} from "@chakra-ui/react"
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 import logo from "../images/logo.png"
 import { useEffect, useState } from "react"
@@ -34,7 +26,13 @@ export default function Navbar() {
       border: "3px solid #f2575d ",
     },
   }
-  const [display, setDisplay] = useState("none")
+
+  const BUTTON_VARIANT = "ghost"
+  const DISPLAY_NONE = "none"
+  const DISPLAY_FLEX = "flex"
+
+  const [display, setDisplay] = useState(DISPLAY_NONE)
+  const [toggled, setToggled] = useState(false)
   const [background, setBackground] = useState("hsl(32, 45%, 94%)")
   const [shadow, setShadow] = useState("")
   const changeBg = (e) => {
@@ -52,18 +50,24 @@ export default function Navbar() {
     window.addEventListener("scroll", changeBg)
   }, [])
 
+  useEffect(() => {
+    setDisplay(toggled ? DISPLAY_FLEX : DISPLAY_NONE)
+  }, [toggled])
+
+  const handleNavLinkClick = () => {
+    setDisplay(DISPLAY_NONE)
+  }
+
   return (
     <div>
       <Flex
         as={motion.div}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        ml={"0px"}
-        mt={"0px"}
         py={"20px"}
         boxShadow={shadow}
         backgroundColor={background}
-        w={"100vw"}
+        w={"100%"}
         pos={"fixed"}
         zIndex={100}
         top={"0px"}
@@ -73,6 +77,7 @@ export default function Navbar() {
           mx={{ base: "3%", md: "3%", lg: "5%", xl: "5%" }}
           w={"100%"}
           mt={"10px"}
+          pl={"1rem"}
         >
           <NavLink to={"/"}>
             <img src={logo} alt='logo' />
@@ -83,11 +88,11 @@ export default function Navbar() {
           <NavLink to={"/about"}>
             <Button
               as={"a"}
-              variant={"ghost"}
+              variant={BUTTON_VARIANT}
               _hover={{ color: "red" }}
               aria-label='About'
               w={"100%"}
-              mr={"50px"}
+              mr={{ base: "0", md: "0", lg: "50px", xl: "50px" }}
             >
               ABOUT
             </Button>
@@ -102,7 +107,7 @@ export default function Navbar() {
           >
             <Button
               as={"a"}
-              variant={"ghost"}
+              variant={BUTTON_VARIANT}
               aria-label='Contact'
               _hover={{ color: "red" }}
               w={"100%"}
@@ -114,7 +119,7 @@ export default function Navbar() {
           <NavLink to={"/price"}>
             <Button
               as={"a"}
-              variant={"ghost"}
+              variant={BUTTON_VARIANT}
               aria-label='Pricing'
               _hover={{ color: "red" }}
               w={"100%"}
@@ -135,18 +140,14 @@ export default function Navbar() {
         </Button>
         <Box
           display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
-          mr={"40px"}
+          mr={"1rem"}
         >
           <Hamburger
             rounded
             direction='right'
             duration={0.5}
             onToggle={(toggled) => {
-              if (toggled) {
-                setDisplay("flex")
-              } else {
-                setDisplay("none")
-              }
+              setToggled(toggled)
             }}
           />
         </Box>
@@ -165,10 +166,10 @@ export default function Navbar() {
           transition={"all 1s"}
         >
           <Flex flexDir={"column"} align={"center"} my={"100px"}>
-            <NavLink to={"/about"} onClick={() => setDisplay("none")}>
+            <NavLink to={"/about"} onClick={handleNavLinkClick}>
               <Button
                 as={"a"}
-                variant={"ghost"}
+                variant={BUTTON_VARIANT}
                 aria-label='About'
                 w={"100%"}
                 mb={"30px"}
@@ -176,10 +177,10 @@ export default function Navbar() {
                 ABOUT
               </Button>
             </NavLink>
-            <NavLink to={"/contact"} onClick={() => setDisplay("none")}>
+            <NavLink to={"/contact"} onClick={handleNavLinkClick}>
               <Button
                 as={"a"}
-                variant={"ghost"}
+                variant={BUTTON_VARIANT}
                 aria-label='Contact'
                 w={"100%"}
                 mb={"30px"}
@@ -187,9 +188,9 @@ export default function Navbar() {
                 CONTACT
               </Button>
             </NavLink>
-            <NavLink to={"/price"} onClick={() => setDisplay("none")}>
+            <NavLink to={"/price"} onClick={handleNavLinkClick}>
               <Button
-                variant={"ghost"}
+                variant={BUTTON_VARIANT}
                 aria-label='Pricing'
                 w={"100%"}
                 mb={"30px"}
@@ -197,10 +198,10 @@ export default function Navbar() {
                 PRICING
               </Button>
             </NavLink>
-            <Button sx={componentButton} mb={"30px"} w={"20%"}>
+            {/* <Button sx={componentButton} mb={"30px"} w={"20%"}>
               Sign Up
-            </Button>
-            <Button variant={"ghost"} sx={secondRegister} w={"20%"}>
+            </Button> */}
+            <Button variant={BUTTON_VARIANT} sx={secondRegister} w={"20%"}>
               Sign In
             </Button>
           </Flex>

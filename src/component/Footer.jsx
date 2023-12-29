@@ -1,38 +1,62 @@
 import secondLogo from "../images/logo_2.png"
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  List,
-  ListItem,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react"
 import facebook from "../images/facebook.svg"
-import twitter from "../images/twitter.svg"
+import X from "../images/X.svg"
 import linkedIn from "../images/linkedIn.svg"
 import { Link, NavLink } from "react-router-dom"
+import ResponsiveList from "../component/ResponsiveList"
 export default function Footer() {
+  const links = [
+    [
+      "Products",
+      [
+        { name: "Overview", path: "/" },
+        { name: "Features", path: "/" },
+        { name: "Pricing", path: "/price" },
+        { name: "Tutorial", path: "/" },
+      ],
+    ],
+    [
+      "Company",
+      [
+        { name: "About Us", path: "/about" },
+        { name: "Contact", path: "/contact" },
+        { name: "FAQ", path: "/" },
+        { name: "Partnerships", path: "/" },
+      ],
+    ],
+    [
+      "Legal",
+      [
+        { name: "Terms", path: "/" },
+        { name: "Privacy", path: "/" },
+        { name: "Support", path: "/" },
+        { name: "License", path: "/" },
+      ],
+    ],
+  ]
   return (
     <div>
       <Grid
         overflowX='hidden'
-        templateColumns={"repeat(6, 1fr)"}
+        templateRows={{
+          base: "1fr minmax(0.5fr, 20rem) 0.5fr",
+          lg: "repeat(3, 1fr)",
+        }}
+        templateColumns={"repeat(5, 1fr)"}
         bgColor={"#213655"}
-        p={"30px"}
-        pt={{ base: "0px", lg: "-100px", xl: "-40px" }}
+        // p={"5rem"}
+        gap={10}
+        p={{ base: "1rem", sm: "2rem", md: "3rem", lg: "5rem", xl: "5rem" }}
+        height={{ base: "auto", lg: "auto" }}
       >
         <GridItem
-          colSpan={{ base: "6", md: "6", lg: "2", xl: "2" }}
-          ml={{ base: "auto" }}
-          mr={{ base: "auto" }}
+          rowSpan={{ base: "1", lg: "2" }}
+          colSpan={{ base: "5", lg: "2" }}
+          mt={{ base: "1rem", lg: "0rem" }}
         >
-          <Box
-            ml={{ base: "auto", md: "20px", lg: "0px", xl: "0px" }}
-            mr={{ base: "auto", md: "20px", lg: "0px", xl: "0px" }}
-            mt={{ base: "10px", lg: "100px" }}
-          >
-            <Box py={"15px"} ml={{ base: "auto" }} mr={{ base: "auto" }}>
+          <Box textAlign={"center"}>
+            <Flex justifyContent={"center"} mb={".5rem"}>
               <NavLink to={"/"}>
                 <img
                   src={secondLogo}
@@ -40,100 +64,47 @@ export default function Footer() {
                   onClick={() => window.scrollTo(0, 0)}
                 />
               </NavLink>
-            </Box>
-            <Text color={"gray.400"} pb={"20px"}>
-              Student Attendance Management System
+            </Flex>
+            <Text mb={"1rem"} color={"gray.400"} fontSize={{ base: "1.4rem" }}>
+              Students Attendance Management System
             </Text>
             <Text color={"white"}>
               Use S.A.M.S to get accurate, reliable, efficient, quick <br /> and
               make taking and tracking attendance <br /> easy for both lecturers
-              and students
+              and students.
             </Text>
           </Box>
         </GridItem>
         <GridItem
-          colSpan={{ base: "6", md: "6", lg: "4", xl: "2" }}
+          rowSpan={{ base: "1", lg: "2" }}
+          colSpan={{ base: "5", lg: "3" }}
+          width={{ base: "100%" }}
           ml={{ base: "auto" }}
           mr={{ base: "auto" }}
-          pt={{ base: "30px", lg: "90px" }}
         >
           <Flex
-            gap={{ base: 10, lg: 20, xl: 20 }}
-            ml={{ base: "auto", md: "auto", lg: "0px", xl: "0px" }}
-            mr={{ base: "auto", md: "auto", lg: "0px", xl: "0px" }}
+            gap={{ md: 10, lg: 20 }}
+            width={"100%"}
+            flexDir={{ base: "column", md: "row" }}
+            justifyContent={{ md: "center" }}
           >
-            <List
-              color={"white"}
-              spacing={4}
-              mr={{ base: "0px", md: "0px", lg: "0px", xl: "0px" }}
-            >
-              <ListItem fontFamily={"heading"}>Products</ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Overview</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Features</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/price"}>Pricing</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Tutorial</NavLink>
-              </ListItem>
-            </List>
-
-            <List
-              color={"white"}
-              spacing={4}
-              mr={{ base: "0px", md: "0px", lg: "0px", xl: "0px" }}
-            >
-              <ListItem fontFamily={"heading"}>Company</ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/about"}>About Us</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/contact"}>Contact</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>FAQ</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Partnerships</NavLink>
-              </ListItem>
-            </List>
-
-            <List color={"white"} spacing={4}>
-              <ListItem fontFamily={"heading"}>Legal</ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Terms</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Privacy</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>Support</NavLink>
-              </ListItem>
-              <ListItem _hover={{ color: "blue.500" }}>
-                <NavLink to={"/"}>License</NavLink>
-              </ListItem>
-            </List>
+            {links.map(([title, links], index) => (
+              <ResponsiveList title={title} links={links} key={index} />
+            ))}
           </Flex>
         </GridItem>
         <GridItem
-          colSpan={{ base: "6", md: "6", lg: "4", xl: "2" }}
-          ml={{ base: "auto" }}
-          mr={{ base: "auto", lg: "-100px" }}
+          rowSpan={{ base: "1", lg: "1" }}
+          colSpan={{ base: "5", lg: "5" }}
+          alignItems={{ base: "center", lg: "flex-start" }}
+          justifyContent={{ base: "center", lg: "flex-start" }}
         >
-          <Box
-            mr={{ base: "auto", md: "auto", lg: "0px", xl: "150px" }}
-            ml={{ base: "auto", md: "auto", lg: "0px", xl: "0px" }}
-            mt={{ base: "60px", xl: "120px" }}
-          >
+          <Box>
             <Flex flexDir={"column"} align={"center"}>
-              <Text color={"white"} pb={"10px"}>
+              <Text color={"white"} pb={".5rem"}>
                 STAY CONNECTED
               </Text>
-              <Flex gap={3} pb={"0px"}>
+              <Flex gap={3}>
                 <Box
                   _hover={{
                     filter:
@@ -148,24 +119,25 @@ export default function Footer() {
                       style={{
                         filter:
                           "invert(99%) sepia(7%) saturate(140%) hue-rotate(223deg) brightness(114%) contrast(100%)",
+                        transition: "filter 0.3s ease",
                       }}
                     />
                   </Link>
                 </Box>
                 <Box
                   _hover={{
-                    filter:
-                      "invert(43%) sepia(94%) saturate(5894%) hue-rotate(204deg) brightness(102%) contrast(101%)",
+                    filter: "invert(100%) brightness(0%)",
                   }}
                 >
                   <Link to={"#"}>
                     <img
-                      src={twitter}
-                      alt='twitter icon'
+                      src={X}
+                      alt='X icon'
                       width={"40px"}
                       style={{
                         filter:
                           "invert(99%) sepia(7%) saturate(140%) hue-rotate(223deg) brightness(114%) contrast(100%)",
+                        transition: "filter 0.3s ease",
                       }}
                     />
                   </Link>
@@ -184,15 +156,16 @@ export default function Footer() {
                       style={{
                         filter:
                           "invert(99%) sepia(7%) saturate(140%) hue-rotate(223deg) brightness(114%) contrast(100%)",
+                        transition: "filter 0.3s ease",
                       }}
                     />
                   </Link>
                 </Box>
               </Flex>
+              <Text color={"gray.400"} textAlign={"center"} mb={{ base: "0" }}>
+                Copyright &copy; {new Date().getFullYear()}. All rights reserved
+              </Text>
             </Flex>
-            <Text color={"gray.400"}>
-              Copyright &copy; {new Date().getFullYear()}. All rights reserved
-            </Text>
           </Box>
         </GridItem>
       </Grid>
