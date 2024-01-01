@@ -123,7 +123,7 @@ export default function Lecturer() {
           align={"center"}
           my={"2em"}
         >
-          <Box w={"30px"} mr={"10px"}>
+          <Box w={"30px"} pr={'.5em'} >
             <img
               src={punct}
               style={{
@@ -133,8 +133,8 @@ export default function Lecturer() {
             />
           </Box>
 
-          <Heading fontFamily={"mono"} color={"#213655"}>
-            {isMember ? "Log in" : "Sign Up as a Lecturer"}{" "}
+          <Heading fontFamily={"mono"} color={"#213655"} fontSize={{base:'1.3em', md:'1.7em', lg:'2em', xl:'2em'}} textAlign={'center'}>
+            {isMember ? "Log in" : "Sign up as a lecturer"}{" "}
           </Heading>
         </Flex>
 
@@ -259,8 +259,8 @@ export default function Lecturer() {
                 <FormErrorMessage>{errors.password}</FormErrorMessage>
               )}
             </FormControl>
-            <Flex justify={"center"} mb={"2rem"}>
-              <Button type='submit' colorScheme='red' w={"30%"}>
+            <Flex justify={"center"} mb={"2em"}>
+              <Button type='submit' colorScheme='red' w={"auto"} >
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
@@ -268,20 +268,18 @@ export default function Lecturer() {
          
           </Form>
           <Flex mb={"2em"} mx={'1.5em'}>
-            <Text pr={'.4em'}>
+            <Text pr={'.4em'} fontSize={{base:".6rem", lg:'.9rem',xl:'.9rem'}}>
             {isMember ? "Don't have an account?" : "Already have an account?"}
             </Text>
             <Link
               textAlign={"center"}
               color={"red"}
-              fontSize={"1rem"}
+              fontSize={{base:".6rem", lg:'.9rem',xl:'.9rem'}}
               onClick={() => setIsMember(!isMember)}
             >
               {isMember ? "Get started" : "Log in"}
             </Link>
           </Flex>
-          <Flex justify={"center"} mb={"30px"}></Flex>
-          
         </Flex>
       </Container>
 

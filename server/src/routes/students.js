@@ -5,25 +5,24 @@ import { studentModel } from "../models/student.js";
 
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
-  const { firstname, lastname, email, password } = req.body;
-  const student = await studentModel.findOne({ email });
+router.post("/student", async (req, res) => {
+  const { firstname, lastname, email, password } = req.body; // Define the email, firstname, and lastname variables by accessing them from req.body with default values
+  const student = await studentModel.findOne({ firstname, lastname, email });
 
-  if (user) {
-    return res.json({ message: "user exists" });
+  if (student) {
+    return res.json({ message: "student already exists" });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+ // Hash the password with bcrypt using the generated salt
 
   const newStudent = new studentModel({
     firstname,
     lastname,
     email,
-    password: hashedPassword,
+    password
   });
-  await newStudent.save();
-
-  res.json({ message: "users created" });
+  await newStudent.save(); // Save the new student to the database
+  res.json({ message: "student created" });
 });
 
 export { router as studentRouter };

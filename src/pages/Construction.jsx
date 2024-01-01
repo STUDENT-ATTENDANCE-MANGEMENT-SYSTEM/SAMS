@@ -39,7 +39,7 @@ export default function Construction() {
         </HStack>
       </Container>
       <Flex justify={"center"}>
-        <Box width={{ md: "100%", lg: "50%" }}>
+        <Box width={{ md: "100%", lg: "50%", xl:'50%' }}>
           <img src={image} alt="image" />
         </Box>
       </Flex>

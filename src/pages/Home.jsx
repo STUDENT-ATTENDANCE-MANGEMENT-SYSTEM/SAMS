@@ -554,12 +554,12 @@ export const Home = () => {
             // mt={{ base: "0px", lg: "40px", xl: "60px" }}
           >
             Experience the future of attendance tracking. Join hundreds of
-            educators who are already making attendance management more
+            institutions who are already making attendance management more
             accurate, efficient and engaging.
           </Text>
           <HStack as={"flex"} align={"center"} justify={"center"} mt={"2rem"}>
             <Link to={"/price"}>
-              <Text color={"#f2575d"} position={"relative"}>
+              <Text color={"#f2575d"} position={"relative"} fontWeight={800}>
                 {" "}
                 <Box
                   w={"3.125rem"}

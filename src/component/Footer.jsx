@@ -126,7 +126,7 @@ export default function Footer() {
                 </Box>
                 <Box
                   _hover={{
-                    filter: "invert(100%) brightness(0%)",
+                    filter: "invert(43%) sepia(94%) saturate(5894%) hue-rotate(204deg) brightness(102%) contrast(101%)",
                   }}
                 >
                   <Link to={"#"}>
