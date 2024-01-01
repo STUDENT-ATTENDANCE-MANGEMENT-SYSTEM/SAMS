@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Box,
   Container,
@@ -6,8 +6,8 @@ import {
   Text,
   Flex,
   SimpleGrid,
-} from "@chakra-ui/react"
-import { motion } from "framer-motion"
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const Body = ({ bodyContent }) => {
   const fadeIn = {
@@ -19,17 +19,17 @@ const Body = ({ bodyContent }) => {
       opacity: 1,
       y: 0,
     },
-  }
+  };
   const SlideIn = {
     initial: {
       opacity: 0,
-      x: 300,
+      x: 200,
     },
     animate: {
       opacity: 1,
       x: 0,
     },
-  }
+  };
   return (
     <SimpleGrid columns={1} overflowX={"hidden"} ml={"auto"} mr={"auto"}>
       {bodyContent.map((item, index) => (
@@ -133,7 +133,7 @@ const Body = ({ bodyContent }) => {
         </Flex>
       ))}
     </SimpleGrid>
-  )
-}
+  );
+};
 
-export default React.memo(Body)
+export default React.memo(Body);

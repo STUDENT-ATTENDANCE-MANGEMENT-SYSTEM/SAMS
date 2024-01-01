@@ -1,9 +1,10 @@
-import { Box, Button, Flex, Spacer } from "@chakra-ui/react"
-import { motion } from "framer-motion"
-import logo from "../images/logo.png"
-import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
-import Hamburger from "hamburger-react"
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import logo from "../images/logo.png";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import {Divide as Hamburger} from "hamburger-react";
+
 export default function Navbar() {
   const componentButton = {
     bgColor: "#213655",
@@ -13,7 +14,7 @@ export default function Navbar() {
       color: "white",
       bgColor: "#f2575d",
     },
-  }
+  };
 
   const secondRegister = {
     color: "#213655",
@@ -25,38 +26,45 @@ export default function Navbar() {
       color: "white",
       border: "3px solid #f2575d ",
     },
-  }
+  };
 
-  const BUTTON_VARIANT = "ghost"
-  const DISPLAY_NONE = "none"
-  const DISPLAY_FLEX = "flex"
+  const BUTTON_VARIANT = "ghost";
+  const DISPLAY_NONE = "none";
+  const DISPLAY_FLEX = "flex";
 
-  const [display, setDisplay] = useState(DISPLAY_NONE)
-  const [toggled, setToggled] = useState(false)
-  const [background, setBackground] = useState("hsl(32, 45%, 94%)")
-  const [shadow, setShadow] = useState("")
+  const [display, setDisplay] = useState(DISPLAY_NONE);
+  const [toggled, setToggled] = useState(false);
+  const [background, setBackground] = useState("hsl(32, 45%, 94%)");
+  const [shadow, setShadow] = useState("");
   const changeBg = (e) => {
-    var scrollValue = window.scrollY
+    var scrollValue = window.scrollY;
     if (scrollValue > 100) {
-      setBackground("white")
-      setShadow("0px 2px 10px 0px rgba(158,161,161,1)")
+      setBackground("white");
+      setShadow("0px 2px 10px 0px rgba(158,161,161,1)");
     } else {
-      setBackground("hsl(32, 45%, 94%)")
-      setShadow("")
+      setBackground("hsl(32, 45%, 94%)");
+      setShadow("");
     }
-  }
+  };
+
+  
+const location = useLocation();
+  useEffect(() => {
+    window.addEventListener("scroll", changeBg);
+  }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBg)
-  }, [])
-
-  useEffect(() => {
-    setDisplay(toggled ? DISPLAY_FLEX : DISPLAY_NONE)
-  }, [toggled])
+    setDisplay(toggled ? DISPLAY_FLEX : DISPLAY_NONE);
+  }, [toggled]);
 
   const handleNavLinkClick = () => {
-    setDisplay(DISPLAY_NONE)
-  }
+    setDisplay(DISPLAY_NONE);
+  };
+
+  useEffect(() => {
+    setToggled(false);
+  }, [location]);
+ 
 
   return (
     <div>
@@ -80,17 +88,17 @@ export default function Navbar() {
           pl={"1rem"}
         >
           <NavLink to={"/"}>
-            <img src={logo} alt='logo' />
+            <img src={logo} alt="logo" />
           </NavLink>
         </Box>
         <Spacer />
         <Flex display={{ base: "none", md: "none", lg: "flex", xl: "flex" }}>
-          <NavLink to={"/about"}>
+          <NavLink to={"/construction"}>
             <Button
               as={"a"}
               variant={BUTTON_VARIANT}
               _hover={{ color: "red" }}
-              aria-label='About'
+              aria-label="About"
               w={"100%"}
               mr={{ base: "0", md: "0", lg: "50px", xl: "50px" }}
             >
@@ -98,17 +106,17 @@ export default function Navbar() {
             </Button>
           </NavLink>
           <NavLink
-            to={"/contact"}
+            to={"/construction"}
             style={({ isActive }) => {
               return {
                 color: isActive ? "Red" : "black",
-              };      
+              };
             }}
           >
             <Button
               as={"a"}
               variant={BUTTON_VARIANT}
-              aria-label='Contact'
+              aria-label="Contact"
               _hover={{ color: "red" }}
               w={"100%"}
               mr={"50px"}
@@ -120,7 +128,7 @@ export default function Navbar() {
             <Button
               as={"a"}
               variant={BUTTON_VARIANT}
-              aria-label='Pricing'
+              aria-label="Pricing"
               _hover={{ color: "red" }}
               w={"100%"}
             >
@@ -144,11 +152,10 @@ export default function Navbar() {
         >
           <Hamburger
             rounded
-            direction='right'
+            direction="right"
             duration={0.5}
-            onToggle={(toggled) => {
-              setToggled(toggled)
-            }}
+            toggled={toggled} 
+            toggle={setToggled}
           />
         </Box>
 
@@ -166,22 +173,22 @@ export default function Navbar() {
           transition={"all 1s"}
         >
           <Flex flexDir={"column"} align={"center"} my={"100px"}>
-            <NavLink to={"/about"} onClick={handleNavLinkClick}>
+            <NavLink to={"/construction"} onClick={handleNavLinkClick}>
               <Button
                 as={"a"}
                 variant={BUTTON_VARIANT}
-                aria-label='About'
+                aria-label="About"
                 w={"100%"}
                 mb={"30px"}
               >
                 ABOUT
               </Button>
             </NavLink>
-            <NavLink to={"/contact"} onClick={handleNavLinkClick}>
+            <NavLink to={"/construction"} onClick={handleNavLinkClick}>
               <Button
                 as={"a"}
                 variant={BUTTON_VARIANT}
-                aria-label='Contact'
+                aria-label="Contact"
                 w={"100%"}
                 mb={"30px"}
               >
@@ -191,7 +198,7 @@ export default function Navbar() {
             <NavLink to={"/price"} onClick={handleNavLinkClick}>
               <Button
                 variant={BUTTON_VARIANT}
-                aria-label='Pricing'
+                aria-label="Pricing"
                 w={"100%"}
                 mb={"30px"}
               >
@@ -208,5 +215,5 @@ export default function Navbar() {
         </Flex>
       </Flex>
     </div>
-  )
+  );
 }
