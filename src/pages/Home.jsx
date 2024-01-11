@@ -11,7 +11,7 @@ import {
   GridItem,
   Show,
   Hide,
-} from "@chakra-ui/react"
+} from "@chakra-ui/react";
 import {
   Drawer,
   DrawerBody,
@@ -20,36 +20,36 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-} from "@chakra-ui/react"
-import { keyframes, css } from "@emotion/react"
-import { useDisclosure } from "@chakra-ui/react"
-import topImage from "../images/image_1.png"
-import easy_attendance from "../images/easy_attendance.png"
-import real_time from "../images/real_time.png"
-import confirm from "../images/online.png"
-import easyuse from "../images/easy-to-use.png"
-import data_analysis from "../images/data_analysis.png"
-import check from "../images/check.png"
-import line from "../images/line2.svg"
-import underline5 from "../images/underline5.svg"
-import arrow4 from "../images/arrow4.svg"
-import punct from "../images/punctuation1.svg"
-import doodle from "../images/doodle2.svg"
-import arrow5 from "../images/arrow5.svg"
-import cornerarrow from "../images/cornerarrow.svg"
-import cookies from "../images/cookies.png"
-import grading from "../images/grading.png"
-import doodle4 from "../images/doodle4.svg"
-import Body from "../component/Body"
-import { motion } from "framer-motion"
-import React, { useEffect, useState } from "react"
-import { Link, NavLink, Outlet } from "react-router-dom"
-import "@fontsource/lato/400.css"
-import "@fontsource/prompt/900.css"
-import "@fontsource/raleway/500.css"
-import "@fontsource/roboto/300.css"
+} from "@chakra-ui/react";
+import { keyframes, css } from "@emotion/react";
+import { useDisclosure } from "@chakra-ui/react";
+import topImage from "../images/image_1.png";
+import easy_attendance from "../images/easy_attendance.png";
+import real_time from "../images/real_time.png";
+import confirm from "../images/online.png";
+import easyuse from "../images/easy-to-use.png";
+import data_analysis from "../images/data_analysis.png";
+import check from "../images/check.png";
+import line from "../images/line2.svg";
+import underline5 from "../images/underline5.svg";
+import arrow4 from "../images/arrow4.svg";
+import punct from "../images/punctuation1.svg";
+import doodle from "../images/doodle2.svg";
+import arrow5 from "../images/arrow5.svg";
+import cornerarrow from "../images/cornerarrow.svg";
+import cookies from "../images/cookies.png";
+import grading from "../images/grading.png";
+import doodle4 from "../images/doodle4.svg";
+import Body from "../component/Body";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "@fontsource/lato/400.css";
+import "@fontsource/prompt/900.css";
+import "@fontsource/raleway/500.css";
+import "@fontsource/roboto/300.css";
 // import Navbar from "../component/Navbar";
-import Footer from "../component/Footer"
+import Footer from "../component/Footer";
 
 export const Home = () => {
   const fonts = [
@@ -60,7 +60,7 @@ export const Home = () => {
     "cursive",
     "monospace",
     "roboto",
-  ]
+  ];
   const bodyContent = [
     {
       image: easy_attendance,
@@ -87,29 +87,30 @@ export const Home = () => {
     //   title: "Automatic Grading",
     //   text: "Never worry about attendance again. Lecturers can easily manage and students can quickly submit attendance with a few click. ",
     // },
-  ]
+  ];
 
-  const [fontIndex, setFontIndex] = useState(0)
+  const [fontIndex, setFontIndex] = useState(0);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setFontIndex((prevIndex) => (prevIndex + 1) % fonts.length)
-    }, 2000)
+      setFontIndex((prevIndex) => (prevIndex + 1) % fonts.length);
+    }, 2000);
 
-    return () => clearInterval(intervalId)
-  }, [])
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
-    document.body.classList.add("bg-color")
-  }, [])
+    document.body.classList.add("bg-color");
+  }, []);
 
   const firstRegister = {
     bgColor: "#213655",
     color: "white",
     ":hover": {
       bgColor: "#f2575d",
+      borderRadius: "10px",
     },
     borderRadius: "0",
-  }
+  };
 
   const secondRegister = {
     color: "#213655",
@@ -120,8 +121,9 @@ export const Home = () => {
       bgColor: "#f2575d",
       color: "white",
       border: "3px solid #f2575d ",
+      borderRadius: "10px",
     },
-  }
+  };
   const cookie = {
     color: "#213655",
     border: "1px solid grey ",
@@ -132,7 +134,7 @@ export const Home = () => {
       color: "white",
       border: "0px solid #f2575d ",
     },
-  }
+  };
   const fadeIn = {
     initial: {
       opacity: 0,
@@ -142,7 +144,7 @@ export const Home = () => {
       opacity: 1,
       y: 0,
     },
-  }
+  };
   const fadeInto = {
     initial: {
       opacity: 0,
@@ -150,47 +152,58 @@ export const Home = () => {
     animate: {
       opacity: 1,
     },
-  }
+  };
   const SlideIn = {
     initial: {
       opacity: 0,
-      x: 300,
+      x: 200,
     },
     animate: {
       opacity: 1,
       x: 0,
     },
-  }
+  };
 
-  const MotionBox = motion(Box)
+  const MotionBox = motion(Box);
   const CookieHeader = React.memo(({ children }) => (
     <Flex justify={"center"} align={"center"}>
       <Heading textAlign={"center"} pr={"15px"}>
         {children}
       </Heading>
       <Box w={"1.875rem"}>
-        <img src={cookies} alt='cookie' />
+        <img src={cookies} alt="cookie" />
       </Box>
     </Flex>
-  ))
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  ));
+  const { isOpen, onOpen, onClose } = useDisclosure();
   useEffect(() => {
     const timer = setTimeout(() => {
-      onOpen()
-    }, 5000)
+      onOpen();
+    }, 5000);
     const cleanup = () => {
-      clearTimeout(timer)
-      onClose()
-    }
-  }, [onOpen, onClose])
+      clearTimeout(timer);
+      onClose();
+    };
+  }, [onOpen, onClose]);
+
+  const [isCookiePolicyAccepted, setIsCookiePolicyAccepted] = useState(false);
+
+  useEffect(() => {
+    const accepted = localStorage.getItem("cookiePolicyAccepted");
+    setIsCookiePolicyAccepted(accepted === "true");
+  }, []);
+
+  const handleAccept = () => {
+    setIsCookiePolicyAccepted(true);
+    localStorage.setItem("cookiePolicyAccepted", "true");
+  };
 
   return (
     <div>
-      {isOpen && (
-        <Drawer isOpen={isOpen} placement='bottom' onClose={onClose}>
+      {!isCookiePolicyAccepted && (
+        <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
           <DrawerOverlay />
-          <DrawerContent overflowX='hidden'>
+          <DrawerContent overflowX="hidden">
             <DrawerCloseButton />
             <DrawerHeader>
               <CookieHeader>This website uses cookies</CookieHeader>
@@ -208,9 +221,9 @@ export const Home = () => {
             <Flex flexDirection={"row"} justify={"center"}>
               <DrawerFooter>
                 <Button sx={cookie} mr={3} onClick={onClose}>
-                  Read More
+                  <Link to={"/construction"}>Read more</Link>
                 </Button>
-                <Button sx={cookie} mr={3} onClick={onClose}>
+                <Button sx={cookie} mr={3} onClick={handleAccept}>
                   Accept
                 </Button>
               </DrawerFooter>
@@ -219,7 +232,7 @@ export const Home = () => {
         </Drawer>
       )}
       <Flex
-        as='section'
+        as="section"
         flexDirection={{ base: "column", md: "column", lg: "row", xl: "row" }}
         align={"center"}
         justify={{ base: "center", md: "center", lg: "space-between" }}
@@ -253,7 +266,7 @@ export const Home = () => {
           >
             Get the best way to obtain and monitor students' attendance
           </Heading>
-          <Show above='lg'>
+          <Show above="lg">
             <Box
               as={motion.div}
               variants={fadeIn}
@@ -275,7 +288,7 @@ export const Home = () => {
             >
               <img
                 src={doodle4}
-                alt='doodle'
+                alt="doodle"
                 style={{
                   filter:
                     "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -319,7 +332,7 @@ export const Home = () => {
         >
           <img
             src={topImage}
-            alt='imageOne'
+            alt="imageOne"
             style={{
               height: "auto",
               width: "100%",
@@ -329,11 +342,11 @@ export const Home = () => {
       </Flex>
 
       <Box>
-        <img src={line} alt='line' width={"100%"} />
+        <img src={line} alt="line" width={"100%"} />
       </Box>
 
-      <Box as='section' backgroundColor={"#fff"} width={"100%"}>
-        <Container as='section' backgroundColor={"#fff"} pt={"100px"}>
+      <Box as="section" backgroundColor={"#fff"} width={"100%"}>
+        <Container as="section" backgroundColor={"#fff"} pt={"100px"}>
           <Heading
             as={motion.div}
             variants={fadeIn}
@@ -349,7 +362,7 @@ export const Home = () => {
             textAlign={"center"}
           >
             Transforming Education, One{" "}
-            <Box as='span' position='relative' fontFamily={fonts[fontIndex]}>
+            <Box as="span" position="relative" fontFamily={fonts[fontIndex]}>
               Attendance
               <Box
                 as={motion.div}
@@ -366,7 +379,7 @@ export const Home = () => {
               >
                 <img
                   src={underline5}
-                  alt='loop'
+                  alt="loop"
                   style={{
                     filter:
                       "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -412,7 +425,7 @@ export const Home = () => {
             <img
               w={"100%"}
               src={arrow4}
-              alt='loop'
+              alt="loop"
               style={{
                 filter:
                   "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -420,7 +433,7 @@ export const Home = () => {
             />
           </Flex>
         </Container>
-        <HStack as='flex' justifyContent={"center"}>
+        <HStack as="flex" justifyContent={"center"}>
           <Heading
             textAlign={"center"}
             // pb={"auto"}
@@ -438,7 +451,7 @@ export const Home = () => {
                 filter:
                   "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
               }}
-              alt='loop'
+              alt="loop"
             />
           </Box>
         </HStack>
@@ -448,7 +461,7 @@ export const Home = () => {
           justify={"center"}
           pb={{ base: "0", md: "1.875rem", lg: "2.5rem", xl: "2.5rem" }}
         >
-          <NavLink to={"/about"}>
+          <NavLink to={"/construction"}>
             <Button
               as={motion.div}
               variants={fadeInto}
@@ -468,7 +481,7 @@ export const Home = () => {
               }}
               my={"1.875rem"}
             >
-              <Show above='lg'>
+              <Show above="lg">
                 <Box
                   as={motion.div}
                   variants={fadeInto}
@@ -486,7 +499,7 @@ export const Home = () => {
                 >
                   <img
                     src={doodle}
-                    alt='doodle'
+                    alt="doodle"
                     style={{
                       filter:
                         "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
@@ -495,7 +508,7 @@ export const Home = () => {
                 </Box>
               </Show>
               LEARN MORE
-              <Show below='lg'>
+              <Show below="lg">
                 <MotionBox
                   w={"1.875rem"}
                   ml={"1.25rem"}
@@ -514,7 +527,7 @@ export const Home = () => {
                       filter:
                         "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
                     }}
-                    alt='arrow'
+                    alt="arrow"
                   />
                 </MotionBox>
               </Show>
@@ -524,7 +537,7 @@ export const Home = () => {
       </Box>
 
       <Flex
-        as='section'
+        as="section"
         flexDirection={{ base: "column", md: "column", lg: "row", xl: "row" }}
         align={"center"}
         justify={{ base: "center", md: "center", lg: "space-between" }}
@@ -557,17 +570,23 @@ export const Home = () => {
             institutions who are already making attendance management more
             accurate, efficient and engaging.
           </Text>
-          <HStack as={"flex"} align={"center"} justify={"center"} mt={"2rem"}>
-            <Link to={"/price"}>
+          <HStack
+            as={"flex"}
+            align={"center"}
+            justify={{ base: "center", lg: "left", xl: "left" }}
+            ml={{ base: "0", lg: "4.5em", xl: "4.5em" }}
+            mt={"2rem"}
+          >
+            <Link to={"/construction"}>
               <Text color={"#f2575d"} position={"relative"} fontWeight={800}>
                 {" "}
                 <Box
                   w={"3.125rem"}
                   position={"absolute"}
-                  left={"-70%"}
+                  left={"-60%"}
                   bottom={"-23%"}
                 >
-                  <img src={cornerarrow} alt='corner-arrow' />
+                  <img src={cornerarrow} alt="corner-arrow" />
                 </Box>{" "}
                 Request Demo
               </Text>
@@ -588,12 +607,12 @@ export const Home = () => {
           // ml={"auto"}
           maxW={"500px"}
         >
-          <img src={check} alt='join' />
+          <img src={check} alt="join" />
         </Container>
       </Flex>
       <Footer />
 
       {/* <Outlet /> */}
     </div>
-  )
-}
+  );
+};

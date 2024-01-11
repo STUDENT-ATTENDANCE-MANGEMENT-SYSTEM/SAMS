@@ -46,7 +46,6 @@ export default function RegisterInstitution() {
         <Flex
           flexDir={"column"}
           mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
-          bgColor={"white"}
           py={"20px"}
           w={{ base: "90%", xl: "50%" }}
           mr={"auto"}
