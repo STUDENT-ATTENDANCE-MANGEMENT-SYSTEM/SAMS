@@ -14,23 +14,31 @@ import {
   InputLeftElement,
   Text,
   Link,
+  VStack,
+  List,
+  ListItem,
+  InputRightElement,
+  IconButton,
 } from "@chakra-ui/react";
-import image from "../../images/25.png";
+import institutions from "nigerian-institutions";
 import { FaUser } from "react-icons/fa";
-import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import arrow from "../../images/arrow6.svg";
-import punct from "../../images/punct.svg";
+import { CloseIcon, EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+
+import logo from "../../images/logo-revamp.svg";
+
 import { useContext, useEffect, useState } from "react";
-import { Form, NavLink, Outlet, redirect, useNavigate } from "react-router-dom";
 import { appContext } from "../../App";
+import {
+  Form,
+  NavLink,
+  Outlet,
+  redirect,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import { color } from "framer-motion";
-export default function Student() {
-  useEffect(() => {
-    document.body.classList.add("bg-color");
-  }, []);
-
+export default function Lecturer() {
   const [show, setShow] = useState(false);
-
   const handleShow = () => setShow(!show);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -39,10 +47,14 @@ export default function Student() {
   const [isMember, setIsMember] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [institution, setInstitution] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [isDropdownOpen, setIsDropDownOpen] = useState(false);
   const { setStudent } = useContext(appContext);
   const navigate = useNavigate();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const institutionRegex = /^[A-Za-z\s]+$/;
   const formNameRegex = /^[A-Za-z]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const handleSubmit = async (e) => {
@@ -50,9 +62,10 @@ export default function Student() {
     setIsSubmitted(true);
     const studentFormData = new FormData(e.currentTarget);
     let values = [...studentFormData.values()];
+    console.log(values);
     let errors = {};
     if (isMember) {
-      const student = {
+      const student= {
         email: values[0],
         password: values[1],
       };
@@ -63,8 +76,10 @@ export default function Student() {
         lastName: values[1],
         email: values[2],
         password: values[3],
+        institution: values[4],
       };
       setStudent(student);
+
       if (!values[0]) {
         errors.firstName = "First name is required.";
       } else if (!formNameRegex.test(values[0])) {
@@ -86,12 +101,44 @@ export default function Student() {
         errors.password =
           "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.";
       }
+      if (!values[4]) {
+        errors.institution = "Institution is required.";
+      } else if (!institutionRegex.test(values[4])) {
+        errors.institution = "Please enter only alphabets.";
+      }
       if (Object.keys(errors).length === 0) {
-        navigate("/student");
+        navigate("/lecturer");
       }
     }
     setErrors(errors);
   };
+
+  const response = institutions.allSchools().map((school) => {
+    return {
+      name: school.name,
+    };
+  });
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInstitution(value);
+    const filterSuggestions = response.filter((res) =>
+      res.name.toString().toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filterSuggestions);
+    setIsDropDownOpen(!!value);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setIsDropDownOpen(false);
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const buttonReturn = {
     bgColor: "#213655",
@@ -101,98 +148,93 @@ export default function Student() {
       bgColor: "blue.100",
     },
   };
+
   return (
     <div>
-      <Container
+      <Flex
         flexDir={"column"}
-        mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
+        mt={{ base: "60px", md: "150px", lg: "100px", xl: "10px" }}
         py={"20px"}
         w={{ base: "90%", xl: "50%" }}
         mr={"auto"}
         ml={"auto"}
       >
-        <Flex
-          flexDirection={"row"}
-          justify={"center"}
-          align={"center"}
-          my={"2em"}
-        >
-          <Box w={"30px"} mr={"10px"}>
-            <img
-              src={punct}
-              style={{
-                filter:
-                  "invert(34%) sepia(71%) saturate(3040%) hue-rotate(328deg) brightness(101%) contrast(89%)",
-              }}
-            />
+        <Flex justify={"center"}>
+          <Box w={"15%"}>
+            <img src={logo} alt="logo" />
           </Box>
-
-          <Heading fontFamily={"mono"} color={"#213655"}>
-            {isMember ? "Log in" : "Sign Up as a Student"}{" "}
-          </Heading>
         </Flex>
+
+        <Heading
+          fontFamily={"mono"}
+          color={"#213655"}
+          fontSize={{ base: "1.9em", md: "1.7em", lg: "3em", xl: "3em" }}
+          textAlign={"center"}
+          mb={"1.4em"}
+        >
+          {isMember ? "Log in" : "Sign up as a student"}{" "}
+        </Heading>
 
         <Flex flexDir="column">
           <Form
             method="post"
-            // action='/signin/student'
+            // action='/signin/lecturer'
             onSubmit={handleSubmit}
           >
-            {!isMember && (
-              <FormControl
-                mb={"2rem"}
-                w={"90%"}
-                ml={"auto"}
-                mr={"auto"}
-                isInvalid={isSubmitted && errors.firstName}
-              >
-                <InputGroup alignItems={"center"}>
-                  <InputLeftElement pointerEvents={"none"}>
-                    <Icon as={FaUser} color="gray" />
-                  </InputLeftElement>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="First Name"
-                    w={"100%"}
-                    border={"1px solid gray"}
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </InputGroup>
-                {isSubmitted && (
-                  <FormErrorMessage>{errors.firstName}</FormErrorMessage>
-                )}
-              </FormControl>
-            )}
-            {!isMember && (
-              <FormControl
-                mb={"2rem"}
-                w={"90%"}
-                ml={"auto"}
-                mr={"auto"}
-                isInvalid={isSubmitted && errors.lastName}
-              >
-                <InputGroup alignItems={"center"}>
-                  <InputLeftElement pointerEvents={"none"}>
-                    <Icon as={FaUser} color="gray" />
-                  </InputLeftElement>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Last Name"
-                    w={"100%"}
-                    border={"1px solid gray"}
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                </InputGroup>
-                {isSubmitted && (
-                  <FormErrorMessage>{errors.lastName}</FormErrorMessage>
-                )}
-              </FormControl>
-            )}
-
+            <Flex gap={4} w={"90%"} mr={"auto"} ml={"auto"}>
+              {!isMember && (
+                <FormControl
+                  mb={"2rem"}
+                  ml={"auto"}
+                  mr={"auto"}
+                  isInvalid={isSubmitted && errors.firstName}
+                >
+                  <InputGroup alignItems={"center"}>
+                    <InputLeftElement pointerEvents={"none"}>
+                      <Icon as={FaUser} color="gray" />
+                    </InputLeftElement>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="First Name"
+                      w={"100%"}
+                      border={"1px solid gray"}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </InputGroup>
+                  {isSubmitted && (
+                    <FormErrorMessage>{errors.firstName}</FormErrorMessage>
+                  )}
+                </FormControl>
+              )}{" "}
+              {!isMember && (
+                <FormControl
+                  mb={"2rem"}
+                  ml={"auto"}
+                  mr={"auto"}
+                  isInvalid={isSubmitted && errors.lastName}
+                >
+                  <InputGroup alignItems={"center"}>
+                    <InputLeftElement pointerEvents={"none"}>
+                      <Icon as={FaUser} color="gray" />
+                    </InputLeftElement>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="Last Name"
+                      w={"100%"}
+                      border={"1px solid gray"}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </InputGroup>
+                  {isSubmitted && (
+                    <FormErrorMessage>{errors.lastName}</FormErrorMessage>
+                  )}
+                </FormControl>
+              )}
+            </Flex>
             <FormControl
               mb={"2rem"}
               w={"90%"}
@@ -243,6 +285,7 @@ export default function Student() {
                   placeholder="Password"
                   w={"100%"}
                   border={"1px solid gray"}
+                  outline={"none"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -251,56 +294,94 @@ export default function Student() {
                 <FormErrorMessage>{errors.password}</FormErrorMessage>
               )}
             </FormControl>
-            <Flex
-              justify={"center"}
+            <FormControl
               mb={"2rem"}
               w={"90%"}
               ml={"auto"}
               mr={"auto"}
+              isInvalid={isSubmitted && errors.institution}
             >
-              <Button type="submit" colorScheme="red" w={"30%"}>
+              <Flex pos={"relative"}>
+                <Input
+                  type="text"
+                  name="institution"
+                  value={institution}
+                  onChange={handleInputChange}
+                  placeholder="Type Institution name"
+                  border={"1px solid gray"}
+                />
+                <Box
+                  pos={"absolute"}
+                  top={"50%"}
+                  right={"10px"}
+                  transform={"translateY(-50%)"}
+                  variant={"ghost"}
+                  onClick={() => setInstitution("")}
+                >
+                  <CloseIcon />
+                </Box>
+              </Flex>
+              {isSubmitted && (
+                <FormErrorMessage>{errors.institution}</FormErrorMessage>
+              )}
+              {isDropdownOpen && (
+                <List zIndex={1000} mt={'1em'} maxHeight={"200px"} overflowY={"auto"} backgroundColor={'white'} position={'absolute'}>
+                  {suggestions.map((res, index) => (
+                    <ListItem
+                      h={"50%"}
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent the document click event from firing
+                        setInstitution(res.name);
+                        setIsDropDownOpen(false);
+                      }}
+                    >
+                      {res.name}
+                    </ListItem>
+                  ))}
+                </List>
+              )}
+            </FormControl>
+
+            <Flex justify={"center"} my={"2em"}>
+              <Button
+                type="submit"
+                backgroundColor={
+                  firstName.length < 1 ||
+                  lastName.length < 1 ||
+                  email.length < 1 ||
+                  password.length < 1 ||
+                  institution.length < 1 > 0
+                    ? "grey"
+                    : "red"
+                }
+                color={"white"}
+                w={"auto"}
+              >
                 {isMember ? "Log in" : "Get started"}
               </Button>
             </Flex>
           </Form>
           <Flex mb={"2em"} mx={"1.5em"}>
-            <Text pr={".4em"}>
+            <Text
+              pr={".4em"}
+              fontSize={{ base: ".6rem", lg: ".9rem", xl: ".9rem" }}
+            >
               {isMember ? "Don't have an account?" : "Already have an account?"}
             </Text>
             <Link
               textAlign={"center"}
               color={"red"}
-              fontSize={"1rem"}
+              fontSize={{ base: ".6rem", lg: ".9rem", xl: ".9rem" }}
               onClick={() => setIsMember(!isMember)}
             >
               {isMember ? "Get started" : "Log in"}
             </Link>
           </Flex>
-          <Flex
-            justify={"center"}
-            mb={"2rem"}
-            w={"90%"}
-            ml={"auto"}
-            mr={"auto"}
-          ></Flex>
         </Flex>
-      </Container>
+      </Flex>
+
+      <Outlet />
     </div>
   );
 }
-
-export const studentRegister = async ({ request }) => {
-  console.log(request);
-  const data = await request.formData();
-
-  const submission = {
-    studentName: data.get("name"),
-    studentEmail: data.get("email"),
-    studentPassword: data.get("password"),
-  };
-
-  localStorage.setItem("Student", JSON.stringify(submission));
-
-  console.log(submission);
-  return redirect("/student");
-};

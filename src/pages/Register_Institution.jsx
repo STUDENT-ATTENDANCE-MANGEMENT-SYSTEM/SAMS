@@ -19,10 +19,9 @@ import { FaUser } from "react-icons/fa"
 import { EmailIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import arrow from "../images/arrow6.svg"
 import punct from "../images/punct.svg"
-import { GoogleLogin } from "@react-oauth/google"
-import { GoogleOAuthProvider } from "@react-oauth/google"
+import logo from "../images/logo.png";
 import { useEffect, useState, useContext } from "react"
-import { Form, NavLink, Outlet, redirect } from "react-router-dom"
+import { Form, redirect } from "react-router-dom"
 import { color } from "framer-motion"
 export default function RegisterInstitution() {
   useEffect(() => {
@@ -42,7 +41,6 @@ export default function RegisterInstitution() {
   }
   return (
     <div>
-      <GoogleOAuthProvider clientId='950695587102-tshfvmoi0kj2fasfmiiem3ed022eaf19.apps.googleusercontent.com'>
         <Flex
           flexDir={"column"}
           mt={{ base: "60px", md: "150px", lg: "100px", xl: "100px" }}
@@ -51,6 +49,7 @@ export default function RegisterInstitution() {
           mr={"auto"}
           ml={"auto"}
         >
+          
           <Flex
             flexDirection={"row"}
             justify={"center"}
@@ -140,16 +139,7 @@ export default function RegisterInstitution() {
                 or
               </Text>
             </Form>
-            <Flex justify={"center"} mb={"30px"}>
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  alert(credentialResponse)
-                }}
-                onError={() => {
-                  alert("Login Failed")
-                }}
-              />
-            </Flex>
+            
             <Box
               pos={"absolute"}
               w={{ base: "100px", md: "130px", lg: "150px", xl: "150px" }}
@@ -165,10 +155,7 @@ export default function RegisterInstitution() {
             </Box>
           </Container>
         </Flex>
-      </GoogleOAuthProvider>
-   
-   
-      {/* <Outlet /> */}
+
     </div>
   )
 }
